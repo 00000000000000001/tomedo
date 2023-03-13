@@ -69,7 +69,7 @@
                 <label for="Kinder">Kinder- und Jugendmedizin</label>
             </div>
         </fieldset>
-        <fieldset id="Tasks">
+        <fieldset>
             <legend>Konfiguration</legend>
             <div class="task">
                 <input type="checkbox" id="Betriebsstätten" name="Betriebsstätten">
@@ -87,14 +87,9 @@
                 <input type="text" id="KIM_Notiz">
             </div>
             <div class="task">
-                <input type="checkbox" id="BG" name="BG">
-                <label for="BG">BG</label>
-                <input type="text" id="BG_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="DALE-UV" name="DALE-UV">
-                <label for="DALE-UV">DALE-UV</label>
-                <input type="text" id="DALE-UV_Notiz">
+                <input type="checkbox" id="KV-Connect" name="KV-Connect">
+                <label for="KV-Connect">KV-Connect</label>
+                <input type="text" id="KV-Connect_Notiz">
             </div>
             <div class="task">
                 <input type="checkbox" id="eHBA" name="eHBA">
@@ -112,19 +107,34 @@
                 <input type="text" id="Arbeitsplätze_Notiz">
             </div>
             <div class="task">
+                <input type="checkbox" id="BG" name="BG">
+                <label for="BG">BG</label>
+                <input type="text" id="BG_Notiz">
+            </div>
+            <div class="task">
+                <input type="checkbox" id="DALE-UV" name="DALE-UV">
+                <label for="DALE-UV">DALE-UV</label>
+                <input type="text" id="DALE-UV_Notiz">
+            </div>
+            <div class="task">
                 <input type="checkbox" id="Nutzer" name="Nutzer">
                 <label for="Nutzer">Nutzer</label>
                 <input type="text" id="Nutzer_Notiz">
             </div>
             <div class="task">
-                <input type="checkbox" id="KV-Connect" name="KV-Connect">
-                <label for="KV-Connect">KV-Connect</label>
-                <input type="text" id="KV-Connect_Notiz">
+                <input type="checkbox" id="Kameralogin" name="Kameralogin">
+                <label for="Kameralogin">Kameralogin</label>
+                <input type="text" id="Kameralogin_Notiz">
             </div>
             <div class="task">
                 <input type="checkbox" id="Todos" name="Todos">
                 <label for="Todos">Todos</label>
                 <input type="text" id="Todos_Notiz">
+            </div>
+            <div class="task">
+                <input type="checkbox" id="Räume" name="Räume">
+                <label for="Räume">Räume</label>
+                <input type="text" id="Räume_Notiz">
             </div>
             <div class="task">
                 <input type="checkbox" id="Kalender" name="Kalender">
@@ -137,9 +147,9 @@
                 <input type="text" id="OTK_Notiz">
             </div>
             <div class="task">
-                <input type="checkbox" id="Drucker" name="Drucker">
-                <label for="Drucker">Drucker</label>
-                <input type="text" id="Drucker_Notiz">
+                <input type="checkbox" id="VSS" name="VSS">
+                <label for="VSS">VSS</label>
+                <input type="text" id="VSS_Notiz">
             </div>
             <div class="task">
                 <input type="checkbox" id="Arzeko" name="Arzeko">
@@ -162,11 +172,6 @@
                 <input type="text" id="Ust-Nr._Notiz">
             </div>
             <div class="task">
-                <input type="checkbox" id="VSS" name="VSS">
-                <label for="VSS">VSS</label>
-                <input type="text" id="VSS_Notiz">
-            </div>
-            <div class="task">
                 <input type="checkbox" id="Aktionsketten" name="Aktionsketten">
                 <label for="Aktionsketten">Aktionsketten</label>
                 <input type="text" id="Aktionsketten_Notiz">
@@ -180,11 +185,6 @@
                 <input type="checkbox" id="Textbausteine" name="Textbausteine">
                 <label for="Textbausteine">Textbausteine</label>
                 <input type="text" id="Textbausteine_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Karteieintragstypen" name="Karteieintragstypen">
-                <label for="Karteieintragstypen">Karteieintragstypen</label>
-                <input type="text" id="Karteieintragstypen_Notiz">
             </div>
             <div class="task">
                 <input type="checkbox" id="EBM-Favoriten" name="EBM-Favoriten">
@@ -202,9 +202,9 @@
                 <input type="text" id="ICD-Favoriten_Notiz">
             </div>
             <div class="task">
-                <input type="checkbox" id="Selbstanmeldung" name="Selbstanmeldung">
-                <label for="Selbstanmeldung">Selbstanmeldung</label>
-                <input type="text" id="Selbstanmeldung_Notiz">
+                <input type="checkbox" id="E-Mail" name="E-Mail">
+                <label for="E-Mail">E-Mail</label>
+                <input type="text" id="E-Mail_Notiz">
             </div>
             <div class="task">
                 <input type="checkbox" id="Rechte" name="Rechte">
@@ -232,11 +232,6 @@
                 <input type="text" id="Starface_Notiz">
             </div>
             <div class="task">
-                <input type="checkbox" id="E-Mail" name="E-Mail">
-                <label for="E-Mail">E-Mail</label>
-                <input type="text" id="E-Mail_Notiz">
-            </div>
-            <div class="task">
                 <input type="checkbox" id="Erinnerung" name="Erinnerung">
                 <label for="Erinnerung">Erinnerung</label>
                 <input type="text" id="Erinnerung_Notiz">
@@ -262,14 +257,29 @@
                 <input type="text" id="Privatrezept_Notiz">
             </div>
             <div class="task">
+                <input type="checkbox" id="Formulare" name="Formulare">
+                <label for="Formulare">Formulare</label>
+                <input type="text" id="Formulare_Notiz">
+            </div>
+            <div class="task">
                 <input type="checkbox" id="Briefe" name="Briefe">
                 <label for="Briefe">Briefe</label>
                 <input type="text" id="Briefe_Notiz">
             </div>
             <div class="task">
-                <input type="checkbox" id="Formulare" name="Formulare">
-                <label for="Formulare">Formulare</label>
-                <input type="text" id="Formulare_Notiz">
+                <input type="checkbox" id="Drucker" name="Drucker">
+                <label for="Drucker">Drucker</label>
+                <input type="text" id="Drucker_Notiz">
+            </div>
+            <div class="task">
+                <input type="checkbox" id="Karteieintragstypen" name="Karteieintragstypen">
+                <label for="Karteieintragstypen">Karteieintragstypen</label>
+                <input type="text" id="Karteieintragstypen_Notiz">
+            </div>
+            <div class="task">
+                <input type="checkbox" id="Selbstanmeldung" name="Selbstanmeldung">
+                <label for="Selbstanmeldung">Selbstanmeldung</label>
+                <input type="text" id="Selbstanmeldung_Notiz">
             </div>
             <div class="task">
                 <input type="checkbox" id="iPads" name="iPads">
@@ -297,11 +307,6 @@
                 <input type="text" id="Doctolib_Notiz">
             </div>
             <div class="task">
-                <input type="checkbox" id="Räume" name="Räume">
-                <label for="Räume">Räume</label>
-                <input type="text" id="Räume_Notiz">
-            </div>
-            <div class="task">
                 <input type="checkbox" id="Spracherkennung" name="Spracherkennung">
                 <label for="Spracherkennung">Spracherkennung</label>
                 <input type="text" id="Spracherkennung_Notiz">
@@ -310,11 +315,6 @@
                 <input type="checkbox" id="Scanner" name="Scanner">
                 <label for="Scanner">Scanner</label>
                 <input type="text" id="Scanner_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Kameralogin" name="Kameralogin">
-                <label for="Kameralogin">Kameralogin</label>
-                <input type="text" id="Kameralogin_Notiz">
             </div>
             <div class="task">
                 <input type="checkbox" id="Früherkennung" name="Früherkennung">
@@ -332,7 +332,7 @@
                 <input type="text" id="Analogziffern_Notiz">
             </div>
         </fieldset>
-        Name: 
+        Name:
         <input type="text" value="Praxis " id="filename">
         <input type="button" value="speichern" id="speichern">
     </div>

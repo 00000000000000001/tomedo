@@ -110,6 +110,7 @@ const TASK_KBV = "KBV-Kopf konfigurieren";
 const TASK_PAPIER = "Papier in die Drucker legen";
 const TASK_BG = "BG Modul aktivieren";
 const TASK_HKS = "eDoku Modul aktivieren";
+const TASK_OPS = "OPS-Favoriten konfigurieren";
 
 // listeners
 document.getElementById("speichern").addEventListener("click", speichern, false);
@@ -222,6 +223,8 @@ function notizen() {
         notizen.set('eHKS/FEK/oKFE', document.getElementById('eHKS/FEK/oKFE_Notiz').value);
     if (document.getElementById('Analogziffern_Notiz').value != "")
         notizen.set('Analogziffern', document.getElementById('Analogziffern_Notiz').value);
+    if (document.getElementById('OPS-Favoriten_Notiz').value != "")
+        notizen.set('OPS-Favoriten', document.getElementById('OPS-Favoriten_Notiz').value);
 
     return notizen;
 }
@@ -470,6 +473,9 @@ function topsort() {
     if (document.getElementById('Analogziffern').checked && !document.getElementById('Analogziffern').disabled) {
         ts.add([TASK_KUNDE, TASK_ANALOGZIFFERN]);
     }
+    if (document.getElementById('OPS-Favoriten').checked && !document.getElementById('OPS-Favoriten').disabled) {
+        ts.add([TASK_KUNDE, TASK_OPS]);
+    }
 
     return ts;
 }
@@ -502,7 +508,7 @@ function speichern() {
         docto_list += `- [ ] ${task}\n`;
     }
     for (const [key, value] of notizen().entries()) {
-        notizen_list += `- [ ] ${key}: ${value}\n`;
+        notizen_list += `* ${key}: ${value}\n`;
     }
 
     if (todo_list != "")

@@ -6,7 +6,8 @@
     color: #2c3e50;
 }
 
-input[type=text], fieldset {
+input[type=text],
+fieldset {
     border: solid 1px gray;
     border-radius: 5px;
 }
@@ -20,7 +21,8 @@ input[type=text] {
     flex-direction: row;
 }
 
-.task, #speichern_div {
+.task,
+#speichern_div {
     padding: 3px;
 }
 
@@ -35,4 +37,11 @@ input[type=text] {
 fieldset {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 800px) {
+    fieldset {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

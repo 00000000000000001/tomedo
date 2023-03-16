@@ -32,12 +32,7 @@ input[type=text] {
     max-width: 200px;
 }
 
-#Praxis, #Fachgruppen {
+fieldset {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    flex-wrap: wrap;
-}
-
-#Fachgruppen {
-    grid-template-rows: repeat(4, 1fr);
 }

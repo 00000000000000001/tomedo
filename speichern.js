@@ -114,6 +114,12 @@ const TASK_OPS = "OPS-Favoriten konfigurieren";
 
 // listeners
 document.getElementById("speichern").addEventListener("click", speichern, false);
+document.getElementById("filename").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Cancel the default action, if needed
+        document.getElementById("speichern").click();
+    }
+}, false);
 
 // callbackfunctions
 function notizen() {

@@ -111,6 +111,9 @@ const TASK_PAPIER = "Papier in die Drucker legen";
 const TASK_BG = "BG Modul aktivieren";
 const TASK_HKS = "eDoku Modul aktivieren";
 const TASK_OPS = "OPS-Favoriten konfigurieren";
+const TASK_PRAXIS_TAGESLISTE = "abgerechnet und dokumentiert: Haken entfernen bei \"Feld ist nutzerspezifisch\"";
+const TASK_PRAXIS_MEDIKS = "Bei Betätigung des Medik-Buttons: 'alle Medikamente'. Beim Erstellen eines Rezepts: 'alle Medikamente'";
+const TASK_BRIEF_SICHTBARKEIT = "Standartbriefvorlagen ausblenden";
 
 // listeners
 document.getElementById("speichern").addEventListener("click", speichern, false);
@@ -236,6 +239,10 @@ function notizen() {
 }
 function topsort() {
     let ts = Object.create(TopSort);
+
+    ts.add([TASK_PRAXIS_TAGESLISTE]);
+    ts.add([TASK_PRAXIS_MEDIKS]);
+    ts.add([TASK_BRIEF_SICHTBARKEIT]);
 
     if (document.getElementById('Betriebsstätten').checked && !document.getElementById('Betriebsstätten').disabled) {
         ts.add([TASK_KUNDE, TASK_BSNR]);
@@ -417,7 +424,7 @@ function topsort() {
     }
     if (document.getElementById('Privatrezept').checked && !document.getElementById('Privatrezept').disabled) {
         ts.add([TASK_KUNDE, TASK_PRIVATREZEPT]);
-        ts.add([TASK_PVS]);
+        ts.add([TASK_KUNDE, TASK_PVS]);
     }
     if (document.getElementById('Briefe').checked && !document.getElementById('Briefe').disabled) {
         ts.add([TASK_KUNDE, TASK_BRIEFVORLAGEN]);
@@ -448,6 +455,7 @@ function topsort() {
     }
     if (document.getElementById('Labore').checked && !document.getElementById('Labore').disabled) {
         ts.add([TASK_LABOR, TASK_LABOR_DFUE]);
+        ts.add([TASK_KUNDE, TASK_LABOR]);
     }
     if (document.getElementById('Labormaschinen').checked && !document.getElementById('Labormaschinen').disabled) {
         ts.add([TASK_LABORMASCHINEN]);

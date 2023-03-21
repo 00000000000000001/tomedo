@@ -4,7 +4,8 @@ const TASK_DRUCKERZUWEISUNG = "Druckerzuweisung";
 const TASK_KUNDE = "Kundengespräch";
 const TASK_SKRIPTE = "Skripte";
 const TASK_STEMPEL = "Stempel";
-const TASK_EMAIL = "E-Mail";
+const TASK_EMAIL_TOMEDO = "E-Mail Client tomedo";
+const TASK_EMAIL_MAIL = "E-Mail Client Mail"
 const TASK_RECHTEVERWALTUNG = "Rechteverwaltung";
 const TASK_ARZTBRIEF = "Arztbrief";
 const TASK_BRIEFKOPF = "Briefkopf";
@@ -114,6 +115,7 @@ const TASK_OPS = "OPS-Favoriten konfigurieren";
 const TASK_PRAXIS_TAGESLISTE = "abgerechnet und dokumentiert: Haken entfernen bei \"Feld ist nutzerspezifisch\"";
 const TASK_PRAXIS_MEDIKS = "Bei Betätigung des Medik-Buttons: 'alle Medikamente'. Beim Erstellen eines Rezepts: 'alle Medikamente'";
 const TASK_BRIEF_SICHTBARKEIT = "Standartbriefvorlagen ausblenden";
+const TASK_NUTZER_FARBEN = "Nutzerfarben einstellen"
 
 // listeners
 document.getElementById("speichern").addEventListener("click", speichern, false);
@@ -300,6 +302,7 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_STEMPEL]);
         ts.add([TASK_KUNDE, TASK_UNTERSCHRIFT]);
         ts.add([TASK_NUTZER, TASK_FACHGRUPPEN]);
+        ts.add([TASK_NUTZER, TASK_NUTZER_FARBEN]);
     }
     if (document.getElementById('KV-Connect').checked && !document.getElementById('KV-Connect').disabled) {
         ts.add([TASK_KUNDE, TASK_KV_CONNECT]);
@@ -380,7 +383,7 @@ function topsort() {
     if (document.getElementById('Rechte').checked && !document.getElementById('Rechte').disabled) {
         ts.add([TASK_NUTZER, TASK_RECHTEVERWALTUNG]);
         ts.add([TASK_KUNDE, TASK_RECHTEVERWALTUNG]);
-        ts.add([TASK_EMAIL, TASK_RECHTEVERWALTUNG]); // kein "must"
+        ts.add([TASK_EMAIL_TOMEDO, TASK_RECHTEVERWALTUNG]); // kein "must"
         ts.add([TASK_RECHTEVERWALTUNG, TASK_TESTS]);
     }
     if (document.getElementById('Kassenbuch').checked && !document.getElementById('Kassenbuch').disabled) {
@@ -402,12 +405,14 @@ function topsort() {
         ts.add([TASK_UCC_KOPPLUNG, TASK_TESTS]);
     }
     if (document.getElementById('E-Mail').checked && !document.getElementById('E-Mail').disabled) {
-        ts.add([TASK_KUNDE, TASK_EMAIL]);
-        ts.add([TASK_EMAIL, TASK_TESTS]);
+        ts.add([TASK_KUNDE, TASK_EMAIL_TOMEDO]);
+        ts.add([TASK_KUNDE, TASK_EMAIL_MAIL]);
+        ts.add([TASK_EMAIL_TOMEDO, TASK_TESTS]);
+        ts.add([TASK_EMAIL_CLIENT]);
     }
     if (document.getElementById('Erinnerung').checked && !document.getElementById('Erinnerung').disabled) {
         ts.add([TASK_KUNDE, TASK_TERMINERINNERUNG]);
-        ts.add([TASK_EMAIL, TASK_TERMINERINNERUNG]);
+        ts.add([TASK_EMAIL_TOMEDO, TASK_TERMINERINNERUNG]);
         ts.add([TASK_TERMINERINNERUNG, TASK_TESTS]);
     }
     if (document.getElementById('Hausdiagnosen').checked && !document.getElementById('Hausdiagnosen').disabled) {
@@ -447,6 +452,7 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_APPLE_ID]);
         ts.add([TASK_APPLE_ID, TASK_IPAD]);
         ts.add([TASK_IPAD_VPN, TASK_IPAD]);
+        ts.add([TASK_IPHONE_VPN, TASK_IPHONE]);
         ts.add([TASK_MOBIL, TASK_APPLE_ID]);
         ts.add([TASK_GEB, TASK_APPLE_ID]);
     }

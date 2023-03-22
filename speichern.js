@@ -5,7 +5,8 @@ const TASK_KUNDE = "Kundengespräch";
 const TASK_SKRIPTE = "Skripte";
 const TASK_STEMPEL = "Stempel";
 const TASK_EMAIL_TOMEDO = "E-Mail Client tomedo";
-const TASK_EMAIL_MAIL = "E-Mail Client Mail"
+const TASK_EMAIL_MAIL = "E-Mail Client Mail";
+const TASK_EMNAIL_SIGNATUREN = "E-Mail Signaturen einfügen";
 const TASK_RECHTEVERWALTUNG = "Rechteverwaltung";
 const TASK_ARZTBRIEF = "Arztbrief";
 const TASK_BRIEFKOPF = "Briefkopf";
@@ -409,6 +410,8 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_EMAIL_MAIL]);
         ts.add([TASK_EMAIL_TOMEDO, TASK_TESTS]);
         ts.add([TASK_EMAIL_CLIENT]);
+        ts.add([TASK_EMAIL_TOMEDO, TASK_EMNAIL_SIGNATUREN]);
+        ts.add([TASK_EMAIL_MAIL, TASK_EMNAIL_SIGNATUREN]);
     }
     if (document.getElementById('Erinnerung').checked && !document.getElementById('Erinnerung').disabled) {
         ts.add([TASK_KUNDE, TASK_TERMINERINNERUNG]);

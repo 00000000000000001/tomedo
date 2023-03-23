@@ -117,6 +117,7 @@ const TASK_PRAXIS_TAGESLISTE = "abgerechnet und dokumentiert: Haken entfernen be
 const TASK_PRAXIS_MEDIKS = "Bei Betätigung des Medik-Buttons: 'alle Medikamente'. Beim Erstellen eines Rezepts: 'alle Medikamente'";
 const TASK_BRIEF_SICHTBARKEIT = "Standartbriefvorlagen ausblenden";
 const TASK_NUTZER_FARBEN = "Nutzerfarben einstellen"
+// Laborziffernübernahme
 
 // listeners
 document.getElementById("speichern").addEventListener("click", speichern, false);
@@ -252,6 +253,7 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_FACHGRUPPEN]);
         ts.add([TASK_KUNDE, TASK_BANKDATEN]);
         ts.add([TASK_BETRIEBSSTAETTEN, TASK_BSNR]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_FACHGRUPPEN]);
     }
     if (document.getElementById('TI').checked && !document.getElementById('TI').disabled) {
         ts.add([TASK_ZOLLSOFT, TASK_TI]);
@@ -516,7 +518,7 @@ function speichern() {
         todo_list += `- [ ] ${task}\n`;
     }
     for (const task of topsort().succ(TASK_KUNDE)) {
-        kunde_list += `- [ ] ${task}\n`;
+        kunde_list += `* ${task}\n`;
     }
     for (const task of topsort().succ(TASK_ZOLLSOFT)) {
         zollsoft_list += `- [ ] ${task}\n`;

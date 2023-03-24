@@ -268,8 +268,7 @@ function topsort() {
         ts.add([TASK_KIM, TASK_TESTS]);
     }
     if (document.getElementById('BG').checked && !document.getElementById('BG').disabled) {
-        ts.add([TASK_BG]);
-        ts.add([TASK_NUTZER, TASK_KAMERALOGIN]);
+        ts.add([TASK_BG, TASK_BGRECHNUNG]);
     }
     if (document.getElementById('DALE-UV').checked && !document.getElementById('DALE-UV').disabled) {
         ts.add([TASK_KUNDE, TASK_DALE_UV]);

@@ -87,6 +87,7 @@ const TASK_KIM = "KIM-Addresse";
 const TASK_DALE_UV = "DALE-UV";
 const TASK_HBA = "HBA";
 const TASK_ARZT_DIREKT = "arzt-direkt";
+const TASK_ARZT_DIREKT_PASSWORTLISTE = "arzt-direkt-Passwortliste ausdrucken und in die Kundenmappe heften";
 const TASK_KV_BEREICH = "KV-Bereich";
 const TASK_SYMBOLLEISTE = "(AP)Symbolleiste (KBV, Attest, Schulbesch., Anwesenheit, Terminzettel";
 const TASK_TI = "TI";
@@ -330,6 +331,7 @@ function topsort() {
         ts.add([TASK_ARZT_DIREKT, TASK_OTK]);
         ts.add([TASK_ZOLLSOFT, TASK_ARZT_DIREKT]);
         ts.add([TASK_OTK, TASK_TESTS]);
+        ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_PASSWORTLISTE]);
     }
     if (document.getElementById('Drucker').checked && !document.getElementById('Drucker').disabled) {
         ts.add([TASK_DRUCKERZUWEISUNG]);
@@ -361,6 +363,8 @@ function topsort() {
         ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS]);
         ts.add([TASK_VSS_AERZTE_FREISCHALTEN, TASK_VSS]);
         ts.add([TASK_VSS, TASK_TESTS]);
+        ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_PASSWORTLISTE]);
+        ts.add([TASK_VSS, TASK_ARZT_DIREKT_PASSWORTLISTE]);
     }
     if (document.getElementById('Aktionsketten').checked && !document.getElementById('Aktionsketten').disabled) {
         ts.add([TASK_KUNDE, TASK_AKTIONSKETTEN]);

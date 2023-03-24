@@ -295,7 +295,6 @@ function topsort() {
         ts.add([TASK_SCHULBESCHEINIGUNG, TASK_SYMBOLLEISTE]);
         ts.add([TASK_ATTEST, TASK_SYMBOLLEISTE]);
         ts.add([TASK_ANWESENHEIT, TASK_SYMBOLLEISTE]);
-        ts.add([TASK_TERMINZETTEL, TASK_SYMBOLLEISTE]);
         ts.add([TASK_KBV, TASK_SYMBOLLEISTE]);
         ts.add([TASK_DRUCKEINSTELLUNGEN, TASK_AP_SICHERN]);
 
@@ -326,6 +325,7 @@ function topsort() {
     if (document.getElementById('Kalender').checked && !document.getElementById('Kalender').disabled) {
         ts.add([TASK_KUNDE, TASK_KALENDER]);
         ts.add([TASK_KALENDER, TASK_TESTS]);
+        ts.add([TASK_TERMINZETTEL, TASK_SYMBOLLEISTE]);
     }
     if (document.getElementById('OTK').checked && !document.getElementById('OTK').disabled) {
         ts.add([TASK_KUNDE, TASK_OTK]);

@@ -121,6 +121,7 @@ const TASK_NUTZER_FARBEN = "Nutzerfarben einstellen"
 const TASK_VSS_AERZTE_REGISTRIEREN = "Ärzte bei arzt-direkt registrieren";
 const TASK_VSS_AERZTE_BESTAETIGEN = "Aktivierungslink von arzt-direkt der Ärzte bestätigen";
 const TASK_VSS_AERZTE_FREISCHALTEN = "Ärzte bei arzt-direkt freischalten";
+const TASK_DRUCK_SPARSAM = "sparsamen Formulardruck aktivieren";
 // Laborziffernübernahme
 
 // listeners
@@ -251,6 +252,7 @@ function topsort() {
     ts.add([TASK_PRAXIS_TAGESLISTE]);
     ts.add([TASK_PRAXIS_MEDIKS]);
     ts.add([TASK_BRIEF_SICHTBARKEIT]);
+    ts.add([TASK_DRUCK_SPARSAM]);
 
     if (document.getElementById('Betriebsstätten').checked && !document.getElementById('Betriebsstätten').disabled) {
         ts.add([TASK_KUNDE, TASK_BSNR]);

@@ -117,6 +117,9 @@ const TASK_PRAXIS_TAGESLISTE = "abgerechnet und dokumentiert: Haken entfernen be
 const TASK_PRAXIS_MEDIKS = "Bei Betätigung des Medik-Buttons: 'alle Medikamente'. Beim Erstellen eines Rezepts: 'alle Medikamente'";
 const TASK_BRIEF_SICHTBARKEIT = "Standartbriefvorlagen ausblenden";
 const TASK_NUTZER_FARBEN = "Nutzerfarben einstellen"
+const TASK_VSS_AERZTE_REGISTRIEREN = "Ärzte bei arzt-direkt registrieren";
+const TASK_VSS_AERZTE_BESTAETIGEN = "Aktivierungslink von arzt-direkt der Ärzte bestätigen";
+const TASK_VSS_AERZTE_FREISCHALTEN = "Ärzte bei arzt-direkt freischalten";
 // Laborziffernübernahme
 
 // listeners
@@ -352,7 +355,12 @@ function topsort() {
     if (document.getElementById('VSS').checked && !document.getElementById('VSS').disabled) {
         ts.add([TASK_KUNDE, TASK_ARZT_DIREKT]);
         ts.add([TASK_ZOLLSOFT, TASK_ARZT_DIREKT]);
-        ts.add([TASK_ARZT_DIREKT, TASK_VSS]);
+        ts.add([TASK_ARZT_DIREKT, TASK_VSS_AERZTE_REGISTRIEREN]);
+        ts.add([TASK_VSS_AERZTE_REGISTRIEREN, TASK_VSS_AERZTE_BESTAETIGEN]);
+        ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS_AERZTE_FREISCHALTEN]);
+        ts.add([TASK_VSS_AERZTE_REGISTRIEREN, TASK_VSS]);
+        ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS]);
+        ts.add([TASK_VSS_AERZTE_FREISCHALTEN, TASK_VSS]);
         ts.add([TASK_VSS, TASK_TESTS]);
     }
     if (document.getElementById('Aktionsketten').checked && !document.getElementById('Aktionsketten').disabled) {
@@ -444,6 +452,7 @@ function topsort() {
         ts.add([TASK_BRIEFVORLAGEN, TASK_BRIEFKOPF_HINTERGRUND]);
         ts.add([TASK_ARZTBRIEF, TASK_BRIEFKOPF_HINTERGRUND]);
         ts.add([TASK_BRIEFKOPF, TASK_BRIEFKOPF_HINTERGRUND]);
+        ts.add([TASK_BRIEFKOPF_HINTERGRUND, TASK_TESTS]);
         ts.add([TASK_FONTS, TASK_BRIEFVORLAGEN]);
         ts.add([TASK_FONTS, TASK_BRIEFVORLAGEN]);
     }

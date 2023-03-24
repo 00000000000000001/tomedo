@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="praxis.js"></script>
     <script defer src="fachgruppen.js"></script>
+    <script defer src="konfiguration.js"></script>
     <script defer src="speichern.js"></script>
 </head>
 
@@ -71,271 +72,275 @@
         </fieldset>
         <fieldset>
             <legend>Konfiguration</legend>
-            <div class="task">
-                <input type="checkbox" id="Betriebsstätten" name="Betriebsstätten">
-                <label for="Betriebsstätten" title="Admin > Praxisorganisation > Betriebsstätten">Betriebsstätten</label>
-                <input type="text" id="Betriebsstätten_Notiz">
+            <div id="checkboxes">
+                <div class="task">
+                    <input type="checkbox" id="Betriebsstätten" name="Betriebsstätten">
+                    <label for="Betriebsstätten" title="Admin > Praxisorganisation > Betriebsstätten">Betriebsstätten</label>
+                    <input type="text" id="Betriebsstätten_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="TI" name="TI">
+                    <label for="TI" title="Wird von Zollsoft installiert">TI</label>
+                    <input type="text" id="TI_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="KIM" name="KIM">
+                    <label for="KIM" title="Wird von Zollsoft konfiguriert">KIM</label>
+                    <input type="text" id="KIM_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="KV-Connect" name="KV-Connect">
+                    <label for="KV-Connect">KV-Connect</label>
+                    <input type="text" id="KV-Connect_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="eHBA" name="eHBA">
+                    <label for="eHBA">eHBA</label>
+                    <input type="text" id="eHBA_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="HZV" name="HZV">
+                    <label for="HZV">HZV</label>
+                    <input type="text" id="HZV_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Arbeitsplätze" name="Arbeitsplätze">
+                    <label for="Arbeitsplätze">Arbeitsplätze</label>
+                    <input type="text" id="Arbeitsplätze_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="BG" name="BG">
+                    <label for="BG">BG</label>
+                    <input type="text" id="BG_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="DALE-UV" name="DALE-UV">
+                    <label for="DALE-UV">DALE-UV</label>
+                    <input type="text" id="DALE-UV_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Nutzer" name="Nutzer">
+                    <label for="Nutzer">Nutzer</label>
+                    <input type="text" id="Nutzer_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Kameralogin" name="Kameralogin">
+                    <label for="Kameralogin">Kameralogin</label>
+                    <input type="text" id="Kameralogin_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Todos" name="Todos">
+                    <label for="Todos">Todos</label>
+                    <input type="text" id="Todos_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Räume" name="Räume">
+                    <label for="Räume">Räume</label>
+                    <input type="text" id="Räume_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Kalender" name="Kalender">
+                    <label for="Kalender">Kalender</label>
+                    <input type="text" id="Kalender_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="OTK" name="OTK">
+                    <label for="OTK">OTK</label>
+                    <input type="text" id="OTK_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="VSS" name="VSS">
+                    <label for="VSS">VSS</label>
+                    <input type="text" id="VSS_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Arzeko" name="Arzeko">
+                    <label for="Arzeko">Arzeko</label>
+                    <input type="text" id="Arzeko_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="DMP" name="DMP">
+                    <label for="DMP">DMP</label>
+                    <input type="text" id="DMP_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="ImpfDocNE" name="ImpfDocNE">
+                    <label for="ImpfDocNE">ImpfDocNE</label>
+                    <input type="text" id="ImpfDocNE_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Ust-Nr." name="Ust-Nr.">
+                    <label for="Ust-Nr.">Ust-Nr.</label>
+                    <input type="text" id="Ust-Nr._Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Aktionsketten" name="Aktionsketten">
+                    <label for="Aktionsketten">Aktionsketten</label>
+                    <input type="text" id="Aktionsketten_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Sachkosten" name="Sachkosten">
+                    <label for="Sachkosten">Sachkosten</label>
+                    <input type="text" id="Sachkosten_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Textbausteine" name="Textbausteine">
+                    <label for="Textbausteine">Textbausteine</label>
+                    <input type="text" id="Textbausteine_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="EBM-Favoriten" name="EBM-Favoriten">
+                    <label for="EBM-Favoriten">EBM-Favoriten</label>
+                    <input type="text" id="EBM-Favoriten_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="OPS-Favoriten" name="OPS-Favoriten">
+                    <label for="OPS-Favoriten">OPS-Favoriten</label>
+                    <input type="text" id="OPS-Favoriten_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="GOÄ-Favoriten" name="GOÄ-Favoriten">
+                    <label for="GOÄ-Favoriten">GOÄ-Favoriten</label>
+                    <input type="text" id="GOÄ-Favoriten_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="ICD-Favoriten" name="ICD-Favoriten">
+                    <label for="ICD-Favoriten">ICD-Favoriten</label>
+                    <input type="text" id="ICD-Favoriten_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="E-Mail" name="E-Mail">
+                    <label for="E-Mail">E-Mail</label>
+                    <input type="text" id="E-Mail_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Rechte" name="Rechte">
+                    <label for="Rechte">Rechte</label>
+                    <input type="text" id="Rechte_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Kassenbuch" name="Kassenbuch">
+                    <label for="Kassenbuch">Kassenbuch</label>
+                    <input type="text" id="Kassenbuch_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Notruf" name="Notruf">
+                    <label for="Notruf">Notruf</label>
+                    <input type="text" id="Notruf_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Hitpanel" name="Hitpanel">
+                    <label for="Hitpanel">Hitpanel</label>
+                    <input type="text" id="Hitpanel_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Starface" name="Starface">
+                    <label for="Starface">Starface</label>
+                    <input type="text" id="Starface_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Erinnerung" name="Erinnerung">
+                    <label for="Erinnerung">Erinnerung</label>
+                    <input type="text" id="Erinnerung_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Hausdiagnosen" name="Hausdiagnosen">
+                    <label for="Hausdiagnosen">Hausdiagnosen</label>
+                    <input type="text" id="Hausdiagnosen_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="SMS" name="SMS">
+                    <label for="SMS">SMS</label>
+                    <input type="text" id="SMS_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Fax" name="Fax">
+                    <label for="Fax">Fax</label>
+                    <input type="text" id="Fax_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Privatrezept" name="Privatrezept">
+                    <label for="Privatrezept">Privatrezept</label>
+                    <input type="text" id="Privatrezept_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Formulare" name="Formulare">
+                    <label for="Formulare">Formulare</label>
+                    <input type="text" id="Formulare_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Briefe" name="Briefe">
+                    <label for="Briefe">Briefe</label>
+                    <input type="text" id="Briefe_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Drucker" name="Drucker">
+                    <label for="Drucker">Drucker</label>
+                    <input type="text" id="Drucker_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Karteieintragstypen" name="Karteieintragstypen">
+                    <label for="Karteieintragstypen">Karteieintragstypen</label>
+                    <input type="text" id="Karteieintragstypen_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Selbstanmeldung" name="Selbstanmeldung">
+                    <label for="Selbstanmeldung">Selbstanmeldung</label>
+                    <input type="text" id="Selbstanmeldung_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="iPads" name="iPads">
+                    <label for="iPads">iPads</label>
+                    <input type="text" id="iPads_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="iPhones" name="iPhones">
+                    <label for="iPhones">iPhones</label>
+                    <input type="text" id="iPhones_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Labore" name="Labore">
+                    <label for="Labore">Labore</label>
+                    <input type="text" id="Labore_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Labormaschinen" name="Labormaschinen">
+                    <label for="Labormaschinen">Labormaschinen</label>
+                    <input type="text" id="Labormaschinen_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Doctolib" name="Doctolib">
+                    <label for="Doctolib">Doctolib</label>
+                    <input type="text" id="Doctolib_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Spracherkennung" name="Spracherkennung">
+                    <label for="Spracherkennung">Spracherkennung</label>
+                    <input type="text" id="Spracherkennung_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Scanner" name="Scanner">
+                    <label for="Scanner">Scanner</label>
+                    <input type="text" id="Scanner_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Früherkennung" name="Früherkennung">
+                    <label for="Früherkennung">Früherkennung</label>
+                    <input type="text" id="Früherkennung_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="eHKS/FEK/oKFE" name="eHKS/FEK/oKFE">
+                    <label for="eHKS/FEK/oKFE">eHKS/FEK/oKFE</label>
+                    <input type="text" id="eHKS/FEK/oKFE_Notiz">
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="Analogziffern" name="Analogziffern">
+                    <label for="Analogziffern">Analogziffern</label>
+                    <input type="text" id="Analogziffern_Notiz">
+                </div>
             </div>
-            <div class="task">
-                <input type="checkbox" id="TI" name="TI">
-                <label for="TI" title="Wird von Zollsoft installiert">TI</label>
-                <input type="text" id="TI_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="KIM" name="KIM">
-                <label for="KIM" title="Wird von Zollsoft konfiguriert">KIM</label>
-                <input type="text" id="KIM_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="KV-Connect" name="KV-Connect">
-                <label for="KV-Connect">KV-Connect</label>
-                <input type="text" id="KV-Connect_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="eHBA" name="eHBA">
-                <label for="eHBA">eHBA</label>
-                <input type="text" id="eHBA_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="HZV" name="HZV">
-                <label for="HZV">HZV</label>
-                <input type="text" id="HZV_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Arbeitsplätze" name="Arbeitsplätze">
-                <label for="Arbeitsplätze">Arbeitsplätze</label>
-                <input type="text" id="Arbeitsplätze_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="BG" name="BG">
-                <label for="BG">BG</label>
-                <input type="text" id="BG_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="DALE-UV" name="DALE-UV">
-                <label for="DALE-UV">DALE-UV</label>
-                <input type="text" id="DALE-UV_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Nutzer" name="Nutzer">
-                <label for="Nutzer">Nutzer</label>
-                <input type="text" id="Nutzer_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Kameralogin" name="Kameralogin">
-                <label for="Kameralogin">Kameralogin</label>
-                <input type="text" id="Kameralogin_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Todos" name="Todos">
-                <label for="Todos">Todos</label>
-                <input type="text" id="Todos_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Räume" name="Räume">
-                <label for="Räume">Räume</label>
-                <input type="text" id="Räume_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Kalender" name="Kalender">
-                <label for="Kalender">Kalender</label>
-                <input type="text" id="Kalender_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="OTK" name="OTK">
-                <label for="OTK">OTK</label>
-                <input type="text" id="OTK_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="VSS" name="VSS">
-                <label for="VSS">VSS</label>
-                <input type="text" id="VSS_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Arzeko" name="Arzeko">
-                <label for="Arzeko">Arzeko</label>
-                <input type="text" id="Arzeko_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="DMP" name="DMP">
-                <label for="DMP">DMP</label>
-                <input type="text" id="DMP_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="ImpfDocNE" name="ImpfDocNE">
-                <label for="ImpfDocNE">ImpfDocNE</label>
-                <input type="text" id="ImpfDocNE_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Ust-Nr." name="Ust-Nr.">
-                <label for="Ust-Nr.">Ust-Nr.</label>
-                <input type="text" id="Ust-Nr._Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Aktionsketten" name="Aktionsketten">
-                <label for="Aktionsketten">Aktionsketten</label>
-                <input type="text" id="Aktionsketten_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Sachkosten" name="Sachkosten">
-                <label for="Sachkosten">Sachkosten</label>
-                <input type="text" id="Sachkosten_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Textbausteine" name="Textbausteine">
-                <label for="Textbausteine">Textbausteine</label>
-                <input type="text" id="Textbausteine_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="EBM-Favoriten" name="EBM-Favoriten">
-                <label for="EBM-Favoriten">EBM-Favoriten</label>
-                <input type="text" id="EBM-Favoriten_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="OPS-Favoriten" name="OPS-Favoriten">
-                <label for="OPS-Favoriten">OPS-Favoriten</label>
-                <input type="text" id="OPS-Favoriten_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="GOÄ-Favoriten" name="GOÄ-Favoriten">
-                <label for="GOÄ-Favoriten">GOÄ-Favoriten</label>
-                <input type="text" id="GOÄ-Favoriten_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="ICD-Favoriten" name="ICD-Favoriten">
-                <label for="ICD-Favoriten">ICD-Favoriten</label>
-                <input type="text" id="ICD-Favoriten_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="E-Mail" name="E-Mail">
-                <label for="E-Mail">E-Mail</label>
-                <input type="text" id="E-Mail_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Rechte" name="Rechte">
-                <label for="Rechte">Rechte</label>
-                <input type="text" id="Rechte_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Kassenbuch" name="Kassenbuch">
-                <label for="Kassenbuch">Kassenbuch</label>
-                <input type="text" id="Kassenbuch_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Notruf" name="Notruf">
-                <label for="Notruf">Notruf</label>
-                <input type="text" id="Notruf_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Hitpanel" name="Hitpanel">
-                <label for="Hitpanel">Hitpanel</label>
-                <input type="text" id="Hitpanel_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Starface" name="Starface">
-                <label for="Starface">Starface</label>
-                <input type="text" id="Starface_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Erinnerung" name="Erinnerung">
-                <label for="Erinnerung">Erinnerung</label>
-                <input type="text" id="Erinnerung_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Hausdiagnosen" name="Hausdiagnosen">
-                <label for="Hausdiagnosen">Hausdiagnosen</label>
-                <input type="text" id="Hausdiagnosen_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="SMS" name="SMS">
-                <label for="SMS">SMS</label>
-                <input type="text" id="SMS_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Fax" name="Fax">
-                <label for="Fax">Fax</label>
-                <input type="text" id="Fax_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Privatrezept" name="Privatrezept">
-                <label for="Privatrezept">Privatrezept</label>
-                <input type="text" id="Privatrezept_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Formulare" name="Formulare">
-                <label for="Formulare">Formulare</label>
-                <input type="text" id="Formulare_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Briefe" name="Briefe">
-                <label for="Briefe">Briefe</label>
-                <input type="text" id="Briefe_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Drucker" name="Drucker">
-                <label for="Drucker">Drucker</label>
-                <input type="text" id="Drucker_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Karteieintragstypen" name="Karteieintragstypen">
-                <label for="Karteieintragstypen">Karteieintragstypen</label>
-                <input type="text" id="Karteieintragstypen_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Selbstanmeldung" name="Selbstanmeldung">
-                <label for="Selbstanmeldung">Selbstanmeldung</label>
-                <input type="text" id="Selbstanmeldung_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="iPads" name="iPads">
-                <label for="iPads">iPads</label>
-                <input type="text" id="iPads_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="iPhones" name="iPhones">
-                <label for="iPhones">iPhones</label>
-                <input type="text" id="iPhones_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Labore" name="Labore">
-                <label for="Labore">Labore</label>
-                <input type="text" id="Labore_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Labormaschinen" name="Labormaschinen">
-                <label for="Labormaschinen">Labormaschinen</label>
-                <input type="text" id="Labormaschinen_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Doctolib" name="Doctolib">
-                <label for="Doctolib">Doctolib</label>
-                <input type="text" id="Doctolib_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Spracherkennung" name="Spracherkennung">
-                <label for="Spracherkennung">Spracherkennung</label>
-                <input type="text" id="Spracherkennung_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Scanner" name="Scanner">
-                <label for="Scanner">Scanner</label>
-                <input type="text" id="Scanner_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Früherkennung" name="Früherkennung">
-                <label for="Früherkennung">Früherkennung</label>
-                <input type="text" id="Früherkennung_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="eHKS/FEK/oKFE" name="eHKS/FEK/oKFE">
-                <label for="eHKS/FEK/oKFE">eHKS/FEK/oKFE</label>
-                <input type="text" id="eHKS/FEK/oKFE_Notiz">
-            </div>
-            <div class="task">
-                <input type="checkbox" id="Analogziffern" name="Analogziffern">
-                <label for="Analogziffern">Analogziffern</label>
-                <input type="text" id="Analogziffern_Notiz">
-            </div>
+            <input type="button" value="Alle markieren" id="alle_markieren">
+            <input type="button" value="Keine markieren" id="keine_markieren">
         </fieldset>
         <div id="speichern_div">
             Name:

@@ -60,7 +60,7 @@ const TASK_UCC_KOPPLUNG = "(AP)UCC_Tomedo_Kopplung";
 const TASK_UCC_CALLMANAGER = "(AP)UCC Callmanager anpassen";
 const TASK_IPAD = "(AP)iPad";
 const TASK_TERMINALS = "(AP)Kartenterminal";
-const TASK_IPAD_VPN = "(AP)iPad_vp";
+const TASK_IPAD_VPN = "(AP)iPad_vpn";
 const TASK_FACHGRUPPEN = "Fachgruppen";
 const TASK_BGRECHNUNG = "BG-Rechnung";
 const TASK_KV_CONNECT = "KV-Connect";
@@ -92,7 +92,8 @@ const TASK_KV_BEREICH = "KV-Bereich";
 const TASK_SYMBOLLEISTE = "(AP)Symbolleiste (KBV, Attest, Schulbesch., Anwesenheit, Terminzettel";
 const TASK_TI = "TI";
 const TASK_MODULE_IMPFDOCNE = "ImpfDocNE-Modul aktivieren";
-const TASK_IPHONE_VPN = "VPN Konfiguration erstellen";
+const TASK_IPHONE_VPN = "iPhone VPN Konfiguration einspielen";
+const TASK_VPN = "VPN Konfiguration erstellen";
 const TASK_DOCTOLIB = "Doctolib kontaktieren";
 const TASK_DOCTOLIB_KOPPLUNG = "Doctolib Kopplung";
 const TASK_DATEIIMPORT = "Dateiimport";
@@ -293,8 +294,11 @@ function topsort() {
         ts.add([TASK_AP_ERSTELLEN, TASK_AP_SICHERN]);
         ts.add([TASK_SYMBOLLEISTE, TASK_AP_SICHERN]);
         ts.add([TASK_SCHULBESCHEINIGUNG, TASK_SYMBOLLEISTE]);
+        ts.add([TASK_SCHULBESCHEINIGUNG, TASK_TESTS]);
         ts.add([TASK_ATTEST, TASK_SYMBOLLEISTE]);
+        ts.add([TASK_ATTEST, TASK_TESTS]);
         ts.add([TASK_ANWESENHEIT, TASK_SYMBOLLEISTE]);
+        ts.add([TASK_ANWESENHEIT, TASK_TESTS]);
         ts.add([TASK_KBV, TASK_SYMBOLLEISTE]);
         ts.add([TASK_DRUCKEINSTELLUNGEN, TASK_AP_SICHERN]);
 
@@ -326,6 +330,7 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_KALENDER]);
         ts.add([TASK_KALENDER, TASK_TESTS]);
         ts.add([TASK_TERMINZETTEL, TASK_SYMBOLLEISTE]);
+        ts.add([TASK_TERMINZETTEL, TASK_TESTS]);
     }
     if (document.getElementById('OTK').checked && !document.getElementById('OTK').disabled) {
         ts.add([TASK_KUNDE, TASK_OTK]);
@@ -471,12 +476,14 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_APPLE_ID]);
         ts.add([TASK_APPLE_ID, TASK_IPAD]);
         ts.add([TASK_IPAD_VPN, TASK_IPAD]);
+        ts.add([TASK_VPN, TASK_IPAD_VPN]);
         ts.add([TASK_IPHONE_VPN, TASK_IPHONE]);
         ts.add([TASK_MOBIL, TASK_APPLE_ID]);
         ts.add([TASK_GEB, TASK_APPLE_ID]);
     }
     if (document.getElementById('iPhones').checked && !document.getElementById('iPhones').disabled) {
         ts.add([TASK_IPHONE_VPN, TASK_IPHONE]);
+        ts.add([TASK_VPN, TASK_IPHONE_VPN]);
     }
     if (document.getElementById('Labore').checked && !document.getElementById('Labore').disabled) {
         ts.add([TASK_LABOR, TASK_LABOR_DFUE]);

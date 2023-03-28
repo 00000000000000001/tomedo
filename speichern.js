@@ -432,6 +432,7 @@ function topsort() {
         ts.add([TASK_EMAIL_CLIENT]);
         ts.add([TASK_EMAIL_TOMEDO, TASK_EMNAIL_SIGNATUREN]);
         ts.add([TASK_EMAIL_MAIL, TASK_EMNAIL_SIGNATUREN]);
+        ts.add([TASK_KUNDE, TASK_EMNAIL_SIGNATUREN]);
     }
     if (document.getElementById('Erinnerung').checked && !document.getElementById('Erinnerung').disabled) {
         ts.add([TASK_KUNDE, TASK_TERMINERINNERUNG]);

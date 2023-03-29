@@ -85,6 +85,7 @@ const TASK_LABORMASCHINEN = "Labormaschinen";
 const TASK_UST_IDNR = "USt-idNr.";
 const TASK_KIM = "KIM-Addresse";
 const TASK_DALE_UV = "DALE-UV";
+const TASK_DALE_U_LAUFENDE_NUMMER = "Laufende Nr. Dale in Zollsoft-Einstellungen hinzufügen";
 const TASK_HBA = "HBA";
 const TASK_ARZT_DIREKT = "arzt-direkt";
 const TASK_ARZT_DIREKT_PASSWORTLISTE = "arzt-direkt-Passwortliste ausdrucken und in die Kundenmappe heften";
@@ -276,6 +277,7 @@ function topsort() {
     }
     if (document.getElementById('DALE-UV').checked && !document.getElementById('DALE-UV').disabled) {
         ts.add([TASK_KUNDE, TASK_DALE_UV]);
+        ts.add([TASK_KUNDE, TASK_DALE_U_LAUFENDE_NUMMER]);
         ts.add([TASK_DALE_UV, TASK_TESTS]);
     }
     if (document.getElementById('eHBA').checked && !document.getElementById('eHBA').disabled) {

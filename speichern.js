@@ -1,112 +1,112 @@
 // constants
-const TASK_BANKDATEN = "Geschäftskonto";
+const TASK_BANKDATEN = "Geschäftskonto hinterlegen";
 const TASK_DRUCKERZUWEISUNG = "Druckerzuweisung";
 const TASK_KUNDE = "Kundengespräch";
 const TASK_SKRIPTE = "Skripte";
 const TASK_STEMPEL = "Stempel";
-const TASK_EMAIL_TOMEDO = "E-Mail Client tomedo";
-const TASK_EMAIL_MAIL = "E-Mail Client Mail";
-const TASK_EMNAIL_SIGNATUREN = "E-Mail Signaturen einfügen";
+const TASK_EMAIL_TOMEDO = "E-Mail Konten hinteregen (tomedo)";
+const TASK_EMAIL_MAIL = "E-Mail Konten hinterlegen (Apple Mail)";
+const TASK_EMNAIL_SIGNATUREN = "E-Mail Signaturen erstellen (tomedo, Apple-Mail)";
 const TASK_RECHTEVERWALTUNG = "Rechteverwaltung";
-const TASK_ARZTBRIEF = "Arztbrief";
-const TASK_BRIEFKOPF = "Briefkopf";
-const TASK_PRIVATRECHNUNG = "Privatrechnung";
-const TASK_RAEUME = "Räume";
-const TASK_TODOS = "TODOs";
+const TASK_ARZTBRIEF = "Arztbrief erstellen";
+const TASK_BRIEFKOPF = "Briefkopf hinterlegen (falls vorhanden)";
+const TASK_PRIVATRECHNUNG = "Privatrechnung erstellen (zollsoft-Vorlage anpassen)";
+const TASK_RAEUME = "Räume hinterlegen";
+const TASK_TODOS = "TODOs hinterlegen";
 const TASK_LABOR = "Labor kontaktieren";
-const TASK_ARBEITSPLATZGRUPPEN = "Arbeitsplatzgruppen";
-const TASK_PRIVATREZEPT = "Privatrezept";
-const TASK_UNTERSCHRIFT = "Unterschrift";
-const TASK_EINSTELLUNGEN_ZOLLSOFT = "Zollsoft_Einstellungen";
-const TASK_VSS = "VSS";
-const TASK_AKTIONSKETTEN = "Aktionsketten";
-const TASK_HAUSKATALOGE = "Hauskataloge";
-const TASK_TEXTBAUSTEINE = "Textbausteine";
-const TASK_GOAE_FAVORITEN = "GOÄ-Favoriten";
-const TASK_FAX = "(AP)Fax";
-const TASK_PVS = "PVS";
-const TASK_GERAETEVIDEOS = "Gerätevideos";
-const TASK_FORMULARE = "Formulare";
+const TASK_ARBEITSPLATZGRUPPEN = "Arbeitsplatzgruppen erstellen (kein Muss)";
+const TASK_PRIVATREZEPT = "individuelles Privatrezept erstellen (falls vorhanden)";
+const TASK_UNTERSCHRIFT = "Unterschrift in den Nutzereinstellungen hinterlegen";
+const TASK_EINSTELLUNGEN_ZOLLSOFT = "Zollsoft Einstellungen anpassen (KV-Bereich, Module)";
+const TASK_VSS = "VSS einrichten (arzt-direkt)";
+const TASK_AKTIONSKETTEN = "Aktionsketten erstellen";
+const TASK_HAUSKATALOGE = "Hauskatalog hinterlegen (Mediks)";
+const TASK_TEXTBAUSTEINE = "Textbausteine hinterlegen";
+const TASK_GOAE_FAVORITEN = "GOÄ-Favoriten hinterlegen";
+const TASK_FAX = "(AP)Fax-Drucker konfigurieren (Druckereinstellungen)";
+const TASK_PVS = "PVS-Konto hinterlegen (benötigt Mitgliedsnummer)";
+const TASK_GERAETEVIDEOS = "Gerätevideos drehen und im Praxisordner speichern";
+const TASK_FORMULARE = "Formulare erstellen";
 const TASK_ZOLLSOFT = "Zollsoft kontaktieren";
 const TASK_RESECO = "Reseco kontaktieren";
-const TASK_KALENDER = "Kalender";
-const TASK_TERMINERINNERUNG = "Terminerinnerung";
-const TASK_OTK = "OTK";
-const TASK_BSNR = "BSNR";
-const TASK_BETRIEBSSTAETTEN = "Betriebsstätten";
-const TASK_KASSENBUCH = "Kassenbuch";
-const TASK_IMPFDOCNE = "ImpfDocNE";
-const TASK_HZV = "HZV";
-const TASK_LANR = "LANR";
-const TASK_FACHRICHTUNG = "Fachrichtung(Betriebsstätten und Nutzer)";
-const TASK_NUTZER = "Nutzer";
-const TASK_SYMBOLLEISTE_IMPFDOC = "(AP)Symbolleiste_ImpfDocNE";
-const TASK_BRIEFKOPF_HINTERGRUND = "(AP)Briefkopf_Hintergrund";
-const TASK_OSX_DRUCKER = "(AP)OSX_Drucker";
-const TASK_SPRACHERKENNUNG = "Spracherkennung";
-const TASK_EMAIL_CLIENT = "(AP)E-Mail_Client";
-const TASK_DRUCKEINSTELLUNGEN = "(AP)Druckeinstellungen";
-const TASK_SYMBOLLEISTE_PRAXIS = "(AP)Symbolleiste_Praxis";
-const TASK_AP_ERSTELLEN = "(AP)AP_ertellen";
-const TASK_AP_SICHERN = "(AP)AP_sichern";
-const TASK_DUPLEX = "(AP)Duplex";
-const TASK_ARZEKO = "(AP)Arzek";
-const TASK_DOCTOLIB_CLIENT = "(AP)DoctoLib_Clien";
-const TASK_DOCTOLIB_TOMEDO = "(AP)DoctoLib_Tomed";
-const TASK_SCANNER = "(AP)Scanner installieren (Software für \"Nicht-ScanSnap\": XSANE";
-const TASK_UCC_CLIENT = "(AP)UCC_Client";
-const TASK_UCC_ANMELDUNG = "(AP)UCC_Anmeldun";
-const TASK_UCC_KOPPLUNG = "(AP)UCC_Tomedo_Kopplung";
-const TASK_UCC_CALLMANAGER = "(AP)UCC Callmanager anpassen";
-const TASK_IPAD = "(AP)iPad";
-const TASK_TERMINALS = "(AP)Kartenterminal";
-const TASK_IPAD_VPN = "(AP)iPad_vpn";
-const TASK_FACHGRUPPEN = "Fachgruppen";
-const TASK_BGRECHNUNG = "BG-Rechnung";
-const TASK_KV_CONNECT = "KV-Connect";
-const TASK_DMP = "DMP";
-const TASK_HAUSDIAGNOSEN = "Hausdiagnosen";
-const TASK_ANALOGZIFFERN = "Analogziffern";
-const TASK_SACHKOSTEN = "Sachkosten";
-const TASK_KARTEIEINTRAGSTYPEN = "Karteieintragstypen";
-const TASK_EBM_FAVORITEN = "EBM-Favoriten";
-const TASK_ICD_FAVORITEN = "ICD-Favoriten";
-const TASK_SELBSTANMELDUNG = "Selbstanmeldung: Einstellungen > Arbeitsplatz > Kiosk";
-const TASK_PRAXISNOTRUF = "Notruf";
-const TASK_HITPANEL = "Hitpanel";
+const TASK_KALENDER = "Kalender konfigurieren";
+const TASK_TERMINERINNERUNG = "Terminerinnerung konfigurieren";
+const TASK_OTK = "OTK konfigurieren";
+const TASK_BSNR = "BSNR hinterlegen";
+const TASK_BETRIEBSSTAETTEN = "Betriebsstätten erstellen";
+const TASK_KASSENBUCH = "Kassenbücher erstellen";
+const TASK_IMPFDOCNE = "ImpfDocNE installieren (macht Zollsoft)";
+const TASK_HZV = "HZV Modul konfigurieren";
+const TASK_LANR = "LANR hinterlegen (Nutzer-Einstellungen)";
+const TASK_FACHRICHTUNG = "Fachrichtungen hinterlegen (Betriebsstätten und Nutzer)";
+const TASK_NUTZER = "tomedo-Nutzer erstellen";
+const TASK_SYMBOLLEISTE_IMPFDOC = "(AP)Symbolleiste ImpfDocNE";
+const TASK_BRIEFKOPF_HINTERGRUND = "(AP)Briefkopfhintergrund hinterlegen (Einstellungen -> Briefschreibung)";
+const TASK_OSX_DRUCKER = "(AP)Drucker im Betriebssystem installieren";
+const TASK_SPRACHERKENNUNG = "Spracherkennung installieren";
+const TASK_EMAIL_CLIENT = "(AP)E-Mail Client in tomedo anpassen (Einstellungen -> Brief/Fax/Mail)";
+const TASK_DRUCKEINSTELLUNGEN = "(AP)Rechnerspez. Druckeinstellungen konfigurieren";
+const TASK_SYMBOLLEISTE_PRAXIS = "(AP)Praxis Ordner in die Symbolleiste einfügen (falls nicht vorhanden)";
+const TASK_AP_ERSTELLEN = "(AP)Arbeitsplätze erstellen";
+const TASK_AP_SICHERN = "(AP)Arbeitsplätze sichern";
+const TASK_DUPLEX = "(AP)Duplexdruck deaktivieren";
+const TASK_ARZEKO = "(AP)Arzeko installieren";
+const TASK_DOCTOLIB_CLIENT = "(AP)DoctoLib App installieren";
+const TASK_DOCTOLIB_TOMEDO = "(AP)DoctoLib mit tomedo koppeln";
+const TASK_SCANNER = "(AP)Scanner installieren";
+const TASK_UCC_CLIENT = "(AP)UCC Client installieren";
+const TASK_UCC_ANMELDUNG = "(AP)UCC Benutzer anmelden";
+const TASK_UCC_KOPPLUNG = "(AP)UCC Client mit tomedo koppeln";
+const TASK_UCC_CALLMANAGER = "(AP)UCC Callmanager anpassen (im Standartimage schon enthalten)";
+const TASK_IPAD = "(AP)iPad's einrichten (tomedo Installieren und mit dem Server verbinden)";
+const TASK_TERMINALS = "(AP)Kartenterminals konfigueren";
+const TASK_IPAD_VPN = "(AP)iPad's mit VPN versehen";
+const TASK_FACHGRUPPEN = "Fachgruppen eintragen";
+const TASK_BGRECHNUNG = "BG-Rechnung anpassen";
+const TASK_KV_CONNECT = "KV-Connect Konto hinterlegen";
+const TASK_DMP = "DMP Modul aktivieren";
+const TASK_HAUSDIAGNOSEN = "Hausdiagnosen hinterlegen (falls vorhanden)";
+const TASK_ANALOGZIFFERN = "Analogziffern erstellen (falls vorhanden)";
+const TASK_SACHKOSTEN = "Sachkosten hinterlegen";
+const TASK_KARTEIEINTRAGSTYPEN = "Karteieintragstypen erstellen (falls erforderlich)";
+const TASK_EBM_FAVORITEN = "EBM-Favoriten anlegen";
+const TASK_ICD_FAVORITEN = "ICD-Favoriten anlegen";
+const TASK_SELBSTANMELDUNG = "Selbstanmeldung konfigurieren: Einstellungen > Arbeitsplatz > Kiosk";
+const TASK_PRAXISNOTRUF = "Notruf-Knopf in der Symbolleiste hinterlegen";
+const TASK_HITPANEL = "Hitpanel installieren";
 const TASK_SCHREIBER = "Herrn Schreiber kontaktieren (+49 5551- 908490)";
-const TASK_TELEFONANBINDUNG = "Telefonanbindung";
-const TASK_SMS = "SMS";
-const TASK_BRIEFVORLAGEN = "Briefvorlagen";
-const TASK_IPHONE = "iPhone";
-const TASK_LABOR_DFUE = "Labor-DFÜ";
-const TASK_LABOR_ZIFFERN = "Labor-Ziffern";
-const TASK_LABORMASCHINEN = "Labormaschinen";
-const TASK_UST_IDNR = "USt-idNr.";
-const TASK_KIM = "KIM-Addresse";
-const TASK_DALE_UV = "DALE-UV";
+const TASK_TELEFONANBINDUNG = "Telefonanbindung installieren";
+const TASK_SMS = "SMS Kontingent hinterlegen";
+const TASK_BRIEFVORLAGEN = "Briefvorlagen erstellen";
+const TASK_IPHONE = "iPhone's mit tomedo und VPN versehen";
+const TASK_LABOR_DFUE = "Labor-DFÜ installieren";
+const TASK_LABOR_ZIFFERN = "Labor-Ziffernübernahme aktivieren (Verwaltung -> Laboreingang)";
+const TASK_LABORMASCHINEN = "Labormaschinen einbinden";
+const TASK_UST_IDNR = "USt-idNr. hinterlegen (Betriebsstätte)";
+const TASK_KIM = "KIM-Addresse konfigurieren (muss von Zollsoft gemacht werden)";
+const TASK_DALE_UV = "DALE-UV Modul aktivieren";
 const TASK_DALE_U_LAUFENDE_NUMMER = "Laufende Nr. Dale in Zollsoft-Einstellungen hinzufügen";
-const TASK_HBA = "HBA";
-const TASK_ARZT_DIREKT = "arzt-direkt";
+const TASK_HBA = "eHBA einrichten";
+const TASK_ARZT_DIREKT = "arzt-direkt Konto erstellen und konfigurieren";
 const TASK_ARZT_DIREKT_PASSWORTLISTE = "arzt-direkt-Passwortliste ausdrucken und in die Kundenmappe heften";
-const TASK_KV_BEREICH = "KV-Bereich";
+const TASK_KV_BEREICH = "KV-Bereich in den Zollsoft-Einstellungen auswählen";
 const TASK_SYMBOLLEISTE = "(AP)Symbolleiste (KBV, Attest, Schulbesch., Anwesenheit, Terminzettel";
-const TASK_TI = "TI";
+const TASK_TI = "TI konfigurieren (muss von Zollsoft gemacht werden)";
 const TASK_MODULE_IMPFDOCNE = "ImpfDocNE-Modul aktivieren";
 const TASK_IPHONE_VPN = "iPhone VPN Konfiguration einspielen";
 const TASK_VPN = "VPN Konfiguration erstellen";
 const TASK_DOCTOLIB = "Doctolib kontaktieren";
-const TASK_DOCTOLIB_KOPPLUNG = "Doctolib Kopplung";
-const TASK_DATEIIMPORT = "Dateiimport";
-const TASK_TODO_RAUM_ZUORDNUNG = "ToDo-Raum-Zuordnung";
+const TASK_DOCTOLIB_KOPPLUNG = "Doctolib mit tomedo koppeln";
+const TASK_DATEIIMPORT = "Dateiimport konfigureren (Server oder Clientseitig)";
+const TASK_TODO_RAUM_ZUORDNUNG = "ToDo-Raum-Zuordnung konfigurieren";
 const TASK_SCANNER_FARBIG = "farbigen Scan einstellen";
 const TASK_FONTS = "(AP)spezielle Fonts installieren";
 const TASK_APPLE_ID = "Apple ID in Erfahrung bringen / erstellen";
-const TASK_MOBIL = "Mobilnummer";
+const TASK_MOBIL = "Mobilnummer des Arztes erfragen (für Apple-ID)";
 const TASK_GEB = "Geburtsdatum des Arztes (für Apple-ID)";
-const TASK_FRUEHERKENNUNG = "Früherkennungsmodul";
+const TASK_FRUEHERKENNUNG = "Früherkennungsmodul konfigurieren und in der Symbolleiste hinterlegen";
 const TASK_TESTS = "Abschließende Testung der Funktionalität";
-const TASK_KAMERALOGIN = "Kameralogin";
+const TASK_KAMERALOGIN = "Kameralogin konfigurieren";
 const TASK_SCHULBESCHEINIGUNG = "Schulbescheinigung erstellen";
 const TASK_TERMINZETTEL = "Terminzettel erstellen";
 const TASK_ATTEST = "Attest erstellen";
@@ -126,6 +126,8 @@ const TASK_VSS_AERZTE_FREISCHALTEN = "Ärzte bei arzt-direkt freischalten";
 const TASK_DRUCK_SPARSAM = "sparsamen Formulardruck aktivieren";
 const TASK_OFFENE_SPRECHSTUNDE = "Offene Sprechstunde in den Einstellungen ausstellen";
 // Laborziffernübernahme
+// UV-GOÄ
+// iPad- Nutzer erstellen
 
 // listeners
 document.getElementById("speichern").addEventListener("click", speichern, false);
@@ -257,6 +259,7 @@ function topsort() {
     ts.add([TASK_BRIEF_SICHTBARKEIT]);
     ts.add([TASK_DRUCK_SPARSAM]);
     ts.add([TASK_OFFENE_SPRECHSTUNDE]);
+    ts.add([TASK_GERAETEVIDEOS]);
 
     if (document.getElementById('Betriebsstätten').checked && !document.getElementById('Betriebsstätten').disabled) {
         ts.add([TASK_KUNDE, TASK_BSNR]);
@@ -379,6 +382,31 @@ function topsort() {
     }
     if (document.getElementById('Aktionsketten').checked && !document.getElementById('Aktionsketten').disabled) {
         ts.add([TASK_KUNDE, TASK_AKTIONSKETTEN]);
+        if (document.getElementById('Briefe').checked) {
+            ts.add([TASK_BRIEFVORLAGEN, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('DMP').checked) {
+            ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('E-Mail').checked) {
+            ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('Formulare').checked) {
+            ts.add([TASK_FORMULARE, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('GOÄ-Favoriten').checked) {
+            ts.add([TASK_GOAE_FAVORITEN, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('Sachkosten').checked) {
+            ts.add([TASK_SACHKOSTEN, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('Kalender').checked) {
+            ts.add([TASK_KALENDER, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('Todos').checked) {
+            ts.add([TASK_TODOS, TASK_AKTIONSKETTEN]);
+        }
+        
     }
     if (document.getElementById('Sachkosten').checked && !document.getElementById('Sachkosten').disabled) {
         ts.add([TASK_KUNDE, TASK_SACHKOSTEN]);

@@ -3,7 +3,7 @@ const TASK_BANKDATEN = "Geschäftskonto hinterlegen";
 const TASK_DRUCKERZUWEISUNG = "Druckerzuweisung";
 const TASK_KUNDE = "Kundengespräch";
 const TASK_SKRIPTE = "Skripte";
-const TASK_STEMPEL = "Stempel";
+const TASK_STEMPEL = "Arzt-Stempel erstellen";
 const TASK_EMAIL_TOMEDO = "E-Mail Konten hinteregen (tomedo)";
 const TASK_EMAIL_MAIL = "E-Mail Konten hinterlegen (Apple Mail)";
 const TASK_EMNAIL_SIGNATUREN = "E-Mail Signaturen erstellen (tomedo, Apple-Mail)";
@@ -146,14 +146,14 @@ function notizen() {
         notizen.set('Betriebsstätten', document.getElementById('Betriebsstätten_Notiz').value);
     if (document.getElementById('TI_Notiz').value != "")
         notizen.set('TI', document.getElementById('TI_Notiz').value);
-    if (document.getElementById('KIM_Notiz').value != "")
-        notizen.set('KIM', document.getElementById('KIM_Notiz').value);
+    // if (document.getElementById('KIM_Notiz').value != "")
+    //     notizen.set('KIM', document.getElementById('KIM_Notiz').value);
     if (document.getElementById('BG_Notiz').value != "")
         notizen.set('BG', document.getElementById('BG_Notiz').value);
     if (document.getElementById('DALE-UV_Notiz').value != "")
         notizen.set('DALE-UV', document.getElementById('DALE-UV_Notiz').value);
-    if (document.getElementById('eHBA_Notiz').value != "")
-        notizen.set('eHBA', document.getElementById('eHBA_Notiz').value);
+    // if (document.getElementById('eHBA_Notiz').value != "")
+    //     notizen.set('eHBA', document.getElementById('eHBA_Notiz').value);
     if (document.getElementById('HZV_Notiz').value != "")
         notizen.set('HZV', document.getElementById('HZV_Notiz').value);
     if (document.getElementById('Arbeitsplätze_Notiz').value != "")
@@ -244,8 +244,8 @@ function notizen() {
         notizen.set('Früherkennung', document.getElementById('Früherkennung_Notiz').value);
     if (document.getElementById('eHKS/FEK/oKFE_Notiz').value != "")
         notizen.set('eHKS/FEK/oKFE', document.getElementById('eHKS/FEK/oKFE_Notiz').value);
-    if (document.getElementById('Analogziffern_Notiz').value != "")
-        notizen.set('Analogziffern', document.getElementById('Analogziffern_Notiz').value);
+    // if (document.getElementById('Analogziffern_Notiz').value != "")
+    //     notizen.set('Analogziffern', document.getElementById('Analogziffern_Notiz').value);
     if (document.getElementById('OPS-Favoriten_Notiz').value != "")
         notizen.set('OPS-Favoriten', document.getElementById('OPS-Favoriten_Notiz').value);
 
@@ -271,12 +271,19 @@ function topsort() {
     if (document.getElementById('TI').checked && !document.getElementById('TI').disabled) {
         ts.add([TASK_ZOLLSOFT, TASK_TI]);
         ts.add([TASK_TI, TASK_TESTS]);
-    }
-    if (document.getElementById('KIM').checked && !document.getElementById('KIM').disabled) {
+        // KIM
         ts.add([TASK_KUNDE, TASK_KIM]);
         ts.add([TASK_ZOLLSOFT, TASK_KIM]);
         ts.add([TASK_KIM, TASK_TESTS]);
+        // eHBA
+        ts.add([TASK_KUNDE, TASK_HBA]);
+        ts.add([TASK_HBA, TASK_TESTS]);
     }
+    // if (document.getElementById('KIM').checked && !document.getElementById('KIM').disabled) {
+    //     ts.add([TASK_KUNDE, TASK_KIM]);
+    //     ts.add([TASK_ZOLLSOFT, TASK_KIM]);
+    //     ts.add([TASK_KIM, TASK_TESTS]);
+    // }
     if (document.getElementById('BG').checked && !document.getElementById('BG').disabled) {
         ts.add([TASK_BG, TASK_BGRECHNUNG]);
     }
@@ -285,10 +292,10 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_DALE_U_LAUFENDE_NUMMER]);
         ts.add([TASK_DALE_UV, TASK_TESTS]);
     }
-    if (document.getElementById('eHBA').checked && !document.getElementById('eHBA').disabled) {
-        ts.add([TASK_KUNDE, TASK_HBA]);
-        ts.add([TASK_HBA, TASK_TESTS]);
-    }
+    // if (document.getElementById('eHBA').checked && !document.getElementById('eHBA').disabled) {
+    //     ts.add([TASK_KUNDE, TASK_HBA]);
+    //     ts.add([TASK_HBA, TASK_TESTS]);
+    // }
     if (document.getElementById('HZV').checked && !document.getElementById('HZV').disabled) {
         ts.add([TASK_KUNDE, TASK_HZV]);
         ts.add([TASK_HZV, TASK_TESTS]);
@@ -382,30 +389,30 @@ function topsort() {
     }
     if (document.getElementById('Aktionsketten').checked && !document.getElementById('Aktionsketten').disabled) {
         ts.add([TASK_KUNDE, TASK_AKTIONSKETTEN]);
-        if (document.getElementById('Briefe').checked) {
-            ts.add([TASK_BRIEFVORLAGEN, TASK_AKTIONSKETTEN]);
-        }
-        if (document.getElementById('DMP').checked) {
-            ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
-        }
-        if (document.getElementById('E-Mail').checked) {
-            ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
-        }
-        if (document.getElementById('Formulare').checked) {
-            ts.add([TASK_FORMULARE, TASK_AKTIONSKETTEN]);
-        }
-        if (document.getElementById('GOÄ-Favoriten').checked) {
-            ts.add([TASK_GOAE_FAVORITEN, TASK_AKTIONSKETTEN]);
-        }
-        if (document.getElementById('Sachkosten').checked) {
-            ts.add([TASK_SACHKOSTEN, TASK_AKTIONSKETTEN]);
-        }
-        if (document.getElementById('Kalender').checked) {
-            ts.add([TASK_KALENDER, TASK_AKTIONSKETTEN]);
-        }
-        if (document.getElementById('Todos').checked) {
-            ts.add([TASK_TODOS, TASK_AKTIONSKETTEN]);
-        }
+        // if (document.getElementById('Briefe').checked) {
+        //     ts.add([TASK_BRIEFVORLAGEN, TASK_AKTIONSKETTEN]);
+        // }
+        // if (document.getElementById('DMP').checked) {
+        //     ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
+        // }
+        // if (document.getElementById('E-Mail').checked) {
+        //     ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
+        // }
+        // if (document.getElementById('Formulare').checked) {
+        //     ts.add([TASK_FORMULARE, TASK_AKTIONSKETTEN]);
+        // }
+        // if (document.getElementById('GOÄ-Favoriten').checked) {
+        //     ts.add([TASK_GOAE_FAVORITEN, TASK_AKTIONSKETTEN]);
+        // }
+        // if (document.getElementById('Sachkosten').checked) {
+        //     ts.add([TASK_SACHKOSTEN, TASK_AKTIONSKETTEN]);
+        // }
+        // if (document.getElementById('Kalender').checked) {
+        //     ts.add([TASK_KALENDER, TASK_AKTIONSKETTEN]);
+        // }
+        // if (document.getElementById('Todos').checked) {
+        //     ts.add([TASK_TODOS, TASK_AKTIONSKETTEN]);
+        // }
         
     }
     if (document.getElementById('Sachkosten').checked && !document.getElementById('Sachkosten').disabled) {
@@ -424,6 +431,9 @@ function topsort() {
     }
     if (document.getElementById('GOÄ-Favoriten').checked && !document.getElementById('GOÄ-Favoriten').disabled) {
         ts.add([TASK_KUNDE, TASK_GOAE_FAVORITEN]);
+        ts.add([TASK_ANALOGZIFFERN, TASK_GOAE_FAVORITEN]);
+        // Analogziffern
+        ts.add([TASK_KUNDE, TASK_ANALOGZIFFERN]);
     }
     if (document.getElementById('ICD-Favoriten').checked && !document.getElementById('ICD-Favoriten').disabled) {
         ts.add([TASK_KUNDE, TASK_ICD_FAVORITEN]);
@@ -551,9 +561,9 @@ function topsort() {
     if (document.getElementById('eHKS/FEK/oKFE').checked && !document.getElementById('eHKS/FEK/oKFE').disabled) {
         ts.add([TASK_HKS]);
     }
-    if (document.getElementById('Analogziffern').checked && !document.getElementById('Analogziffern').disabled) {
-        ts.add([TASK_KUNDE, TASK_ANALOGZIFFERN]);
-    }
+    // if (document.getElementById('Analogziffern').checked && !document.getElementById('Analogziffern').disabled) {
+    //     ts.add([TASK_KUNDE, TASK_ANALOGZIFFERN]);
+    // }
     if (document.getElementById('OPS-Favoriten').checked && !document.getElementById('OPS-Favoriten').disabled) {
         ts.add([TASK_KUNDE, TASK_OPS]);
     }

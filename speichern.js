@@ -6,7 +6,7 @@ const TASK_SKRIPTE = "Skripte";
 const TASK_STEMPEL = "Arzt-Stempel erstellen";
 const TASK_EMAIL_TOMEDO = "E-Mail Konten hinteregen (tomedo)";
 const TASK_EMAIL_MAIL = "E-Mail Konten hinterlegen (Apple Mail)";
-const TASK_EMNAIL_SIGNATUREN = "E-Mail Signaturen erstellen (tomedo, Apple-Mail)";
+const TASK_EMNAIL_SIGNATUREN = "(AP)E-Mail Signaturen erstellen (tomedo, Apple-Mail)";
 const TASK_RECHTEVERWALTUNG = "Rechteverwaltung";
 const TASK_ARZTBRIEF = "Arztbrief erstellen";
 const TASK_BRIEFKOPF = "Briefkopf hinterlegen (falls vorhanden)";
@@ -90,7 +90,7 @@ const TASK_HBA = "eHBA einrichten";
 const TASK_ARZT_DIREKT = "arzt-direkt Konto erstellen und konfigurieren";
 const TASK_ARZT_DIREKT_PASSWORTLISTE = "arzt-direkt-Passwortliste ausdrucken und in die Kundenmappe heften";
 const TASK_KV_BEREICH = "KV-Bereich in den Zollsoft-Einstellungen auswählen";
-const TASK_SYMBOLLEISTE = "(AP)Symbolleiste (KBV, Attest, Schulbesch., Anwesenheit, Terminzettel";
+const TASK_SYMBOLLEISTE = "(AP)Symbolleiste (KBV, Attest, Schulbesch., Anwesenheit, Terminzettel, Früherkennung";
 const TASK_TI = "TI konfigurieren (muss von Zollsoft gemacht werden)";
 const TASK_MODULE_IMPFDOCNE = "ImpfDocNE-Modul aktivieren";
 const TASK_IPHONE_VPN = "iPhone VPN Konfiguration einspielen";
@@ -103,7 +103,7 @@ const TASK_SCANNER_FARBIG = "farbigen Scan einstellen";
 const TASK_FONTS = "(AP)spezielle Fonts installieren";
 const TASK_APPLE_ID = "Apple ID in Erfahrung bringen / erstellen";
 const TASK_MOBIL = "Mobilnummer des Arztes erfragen (für Apple-ID)";
-const TASK_GEB = "Geburtsdatum des Arztes (für Apple-ID)";
+const TASK_GEB = "Geburtsdatum des Arztes (für Apple-ID & OTK Ärzte-Account)";
 const TASK_FRUEHERKENNUNG = "Früherkennungsmodul konfigurieren und in der Symbolleiste hinterlegen";
 const TASK_TESTS = "Abschließende Testung der Funktionalität";
 const TASK_KAMERALOGIN = "Kameralogin konfigurieren";
@@ -120,7 +120,7 @@ const TASK_PRAXIS_TAGESLISTE = "abgerechnet und dokumentiert: Haken entfernen be
 const TASK_PRAXIS_MEDIKS = "Bei Betätigung des Medik-Buttons: 'alle Medikamente'. Beim Erstellen eines Rezepts: 'alle Medikamente'";
 const TASK_BRIEF_SICHTBARKEIT = "Standartbriefvorlagen ausblenden";
 const TASK_NUTZER_FARBEN = "Nutzerfarben einstellen"
-const TASK_VSS_AERZTE_REGISTRIEREN = "Ärzte bei arzt-direkt registrieren";
+const TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN = "Ärzte bei arzt-direkt registrieren";
 const TASK_VSS_AERZTE_BESTAETIGEN = "Aktivierungslink von arzt-direkt der Ärzte bestätigen";
 const TASK_VSS_AERZTE_FREISCHALTEN = "Ärzte bei arzt-direkt freischalten";
 const TASK_DRUCK_SPARSAM = "sparsamen Formulardruck aktivieren";
@@ -200,8 +200,8 @@ function notizen() {
         notizen.set('Rechte', document.getElementById('Rechte_Notiz').value);
     if (document.getElementById('Kassenbuch_Notiz').value != "")
         notizen.set('Kassenbuch', document.getElementById('Kassenbuch_Notiz').value);
-    if (document.getElementById('Notruf_Notiz').value != "")
-        notizen.set('Notruf', document.getElementById('Notruf_Notiz').value);
+    // if (document.getElementById('Notruf_Notiz').value != "")
+    //     notizen.set('Notruf', document.getElementById('Notruf_Notiz').value);
     if (document.getElementById('Hitpanel_Notiz').value != "")
         notizen.set('Hitpanel', document.getElementById('Hitpanel_Notiz').value);
     if (document.getElementById('Starface_Notiz').value != "")
@@ -210,8 +210,8 @@ function notizen() {
         notizen.set('E-Mail', document.getElementById('E-Mail_Notiz').value);
     if (document.getElementById('Erinnerung_Notiz').value != "")
         notizen.set('Erinnerung', document.getElementById('Erinnerung_Notiz').value);
-    if (document.getElementById('Hausdiagnosen_Notiz').value != "")
-        notizen.set('Hausdiagnosen', document.getElementById('Hausdiagnosen_Notiz').value);
+    // if (document.getElementById('Hausdiagnosen_Notiz').value != "")
+    //     notizen.set('Hausdiagnosen', document.getElementById('Hausdiagnosen_Notiz').value);
     if (document.getElementById('SMS_Notiz').value != "")
         notizen.set('SMS', document.getElementById('SMS_Notiz').value);
     if (document.getElementById('Fax_Notiz').value != "")
@@ -353,6 +353,9 @@ function topsort() {
         ts.add([TASK_ZOLLSOFT, TASK_ARZT_DIREKT]);
         ts.add([TASK_OTK, TASK_TESTS]);
         ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_PASSWORTLISTE]);
+        ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
+        ts.add([TASK_GEB, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
+        ts.add([TASK_KUNDE, TASK_GEB]);
     }
     if (document.getElementById('Drucker').checked && !document.getElementById('Drucker').disabled) {
         ts.add([TASK_DRUCKERZUWEISUNG]);
@@ -377,10 +380,11 @@ function topsort() {
     if (document.getElementById('VSS').checked && !document.getElementById('VSS').disabled) {
         ts.add([TASK_KUNDE, TASK_ARZT_DIREKT]);
         ts.add([TASK_ZOLLSOFT, TASK_ARZT_DIREKT]);
-        ts.add([TASK_ARZT_DIREKT, TASK_VSS_AERZTE_REGISTRIEREN]);
-        ts.add([TASK_VSS_AERZTE_REGISTRIEREN, TASK_VSS_AERZTE_BESTAETIGEN]);
+        ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
+        ts.add([TASK_GEB, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
+        ts.add([TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN, TASK_VSS_AERZTE_BESTAETIGEN]);
         ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS_AERZTE_FREISCHALTEN]);
-        ts.add([TASK_VSS_AERZTE_REGISTRIEREN, TASK_VSS]);
+        ts.add([TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN, TASK_VSS]);
         ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS]);
         ts.add([TASK_VSS_AERZTE_FREISCHALTEN, TASK_VSS]);
         ts.add([TASK_VSS, TASK_TESTS]);
@@ -389,31 +393,30 @@ function topsort() {
     }
     if (document.getElementById('Aktionsketten').checked && !document.getElementById('Aktionsketten').disabled) {
         ts.add([TASK_KUNDE, TASK_AKTIONSKETTEN]);
-        // if (document.getElementById('Briefe').checked) {
-        //     ts.add([TASK_BRIEFVORLAGEN, TASK_AKTIONSKETTEN]);
-        // }
-        // if (document.getElementById('DMP').checked) {
-        //     ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
-        // }
-        // if (document.getElementById('E-Mail').checked) {
-        //     ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
-        // }
-        // if (document.getElementById('Formulare').checked) {
-        //     ts.add([TASK_FORMULARE, TASK_AKTIONSKETTEN]);
-        // }
-        // if (document.getElementById('GOÄ-Favoriten').checked) {
-        //     ts.add([TASK_GOAE_FAVORITEN, TASK_AKTIONSKETTEN]);
-        // }
-        // if (document.getElementById('Sachkosten').checked) {
-        //     ts.add([TASK_SACHKOSTEN, TASK_AKTIONSKETTEN]);
-        // }
-        // if (document.getElementById('Kalender').checked) {
-        //     ts.add([TASK_KALENDER, TASK_AKTIONSKETTEN]);
-        // }
-        // if (document.getElementById('Todos').checked) {
-        //     ts.add([TASK_TODOS, TASK_AKTIONSKETTEN]);
-        // }
-        
+        if (document.getElementById('Briefe').checked) {
+            ts.add([TASK_BRIEFVORLAGEN, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('DMP').checked) {
+            ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('E-Mail').checked) {
+            ts.add([TASK_DMP, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('Formulare').checked) {
+            ts.add([TASK_FORMULARE, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('GOÄ-Favoriten').checked) {
+            ts.add([TASK_GOAE_FAVORITEN, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('Sachkosten').checked) {
+            ts.add([TASK_SACHKOSTEN, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('Kalender').checked) {
+            ts.add([TASK_KALENDER, TASK_AKTIONSKETTEN]);
+        }
+        if (document.getElementById('Todos').checked) {
+            ts.add([TASK_TODOS, TASK_AKTIONSKETTEN]);
+        }
     }
     if (document.getElementById('Sachkosten').checked && !document.getElementById('Sachkosten').disabled) {
         ts.add([TASK_KUNDE, TASK_SACHKOSTEN]);
@@ -437,6 +440,8 @@ function topsort() {
     }
     if (document.getElementById('ICD-Favoriten').checked && !document.getElementById('ICD-Favoriten').disabled) {
         ts.add([TASK_KUNDE, TASK_ICD_FAVORITEN]);
+        // Hausdiagnosen
+        // ts.add([TASK_KUNDE, TASK_HAUSDIAGNOSEN]);
     }
     if (document.getElementById('Selbstanmeldung').checked && !document.getElementById('Selbstanmeldung').disabled) {
         ts.add([TASK_NUTZER, TASK_SELBSTANMELDUNG]);
@@ -452,9 +457,9 @@ function topsort() {
     if (document.getElementById('Kassenbuch').checked && !document.getElementById('Kassenbuch').disabled) {
         ts.add([TASK_KASSENBUCH]);
     }
-    if (document.getElementById('Notruf').checked && !document.getElementById('Notruf').disabled) {
-        ts.add([TASK_PRAXISNOTRUF]);
-    }
+    // if (document.getElementById('Notruf').checked && !document.getElementById('Notruf').disabled) {
+    //     ts.add([TASK_PRAXISNOTRUF]);
+    // }
     if (document.getElementById('Hitpanel').checked && !document.getElementById('Hitpanel').disabled) {
         ts.add([TASK_SCHREIBER, TASK_HITPANEL]);
         ts.add([TASK_KUNDE, TASK_HITPANEL]);
@@ -481,9 +486,9 @@ function topsort() {
         ts.add([TASK_EMAIL_TOMEDO, TASK_TERMINERINNERUNG]);
         ts.add([TASK_TERMINERINNERUNG, TASK_TESTS]);
     }
-    if (document.getElementById('Hausdiagnosen').checked && !document.getElementById('Hausdiagnosen').disabled) {
-        ts.add([TASK_KUNDE, TASK_HAUSDIAGNOSEN]);
-    }
+    // if (document.getElementById('Hausdiagnosen').checked && !document.getElementById('Hausdiagnosen').disabled) {
+    //     ts.add([TASK_KUNDE, TASK_HAUSDIAGNOSEN]);
+    // }
     if (document.getElementById('SMS').checked && !document.getElementById('SMS').disabled) {
         ts.add([TASK_ZOLLSOFT, TASK_SMS]);
         ts.add([TASK_SMS, TASK_TESTS]);
@@ -557,6 +562,7 @@ function topsort() {
     }
     if (document.getElementById('Früherkennung').checked && !document.getElementById('Früherkennung').disabled) {
         ts.add([TASK_KUNDE, TASK_FRUEHERKENNUNG]);
+        ts.add([TASK_FRUEHERKENNUNG, TASK_SYMBOLLEISTE]);
     }
     if (document.getElementById('eHKS/FEK/oKFE').checked && !document.getElementById('eHKS/FEK/oKFE').disabled) {
         ts.add([TASK_HKS]);

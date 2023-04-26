@@ -12,7 +12,7 @@ function neugruendungClick() {
 }
 function privatpraxisClick() {
     document.getElementById('TI').disabled = document.getElementById('Privatpraxis').checked;
-    document.getElementById('KIM').disabled = document.getElementById('Privatpraxis').checked;
+    // document.getElementById('KIM').disabled = document.getElementById('Privatpraxis').checked;
     document.getElementById('KV-Connect').disabled = document.getElementById('Privatpraxis').checked || document.getElementById('Neugründung').checked; // Überschneidungen mit anderen callbackfunctions müssen verodert werden
     document.getElementById('DMP').disabled = document.getElementById('Privatpraxis').checked;
     document.getElementById('EBM-Favoriten').disabled = document.getElementById('Privatpraxis').checked;

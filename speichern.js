@@ -126,6 +126,11 @@ const TASK_VSS_AERZTE_FREISCHALTEN = "Ärzte bei arzt-direkt freischalten";
 const TASK_DRUCK_SPARSAM = "sparsamen Formulardruck aktivieren";
 const TASK_OFFENE_SPRECHSTUNDE = "Offene Sprechstunde in den Einstellungen ausstellen";
 const TASK_NUTZER_BETRIEBSSTAETTEN = "Den Nutzern ihre Betriebsstaette zuordnen (Nutzerverwaltung)"
+const TASK_PRIVATRECHNUNG_BETRIEBSSTAETTE = "Privatrechnungstyp (Privatrechnung) als Standartauswahl in den Betriebsstaetten setzen (s. Betriebsstaetten>Sonstiges)";
+const TASK_DALE_UV_BETRIEBSSTAETTEN = "Ansprechpartner für DALE-UV in den Betriebsstaetten hinterlegen (s. Betriebsstaetten>Sonstiges)";
+const TASK_KIM_BETRIEBSSTAETTEN = "KIM E-Mail-Konto in den Betriebsstaetten hinterlegen (s. Betriebsstaetten>Sonstiges)";
+const TASK_BG_BETRIEBSSTAETTE = "Privatrechnungstyp (BG) als Standartauswahl in den Betriebsstaetten setzen (s. Betriebsstaetten>Sonstiges)";
+const TASK_BETRIEBSSTAETTEN_FARBE = "Bei mehreren Betriebsstaetten: Farbe der Betriebsstaette einstellen (s. Betriebsstaetten>Sonstiges)";
 // TODO:
 // - Laborziffernübernahme
 // - UV-GOÄ
@@ -272,9 +277,13 @@ function topsort() {
         ts.add([TASK_BETRIEBSSTAETTEN, TASK_BSNR]);
         ts.add([TASK_KUNDE, TASK_BSNR]);
         ts.add([TASK_BETRIEBSSTAETTEN, TASK_FACHGRUPPEN]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_BETRIEBSSTAETTEN_FARBE]);
         // Nutzer-Betriebsstaettenzuordnung
         ts.add([TASK_NUTZER, TASK_NUTZER_BETRIEBSSTAETTEN]);
         ts.add([TASK_BETRIEBSSTAETTEN, TASK_NUTZER_BETRIEBSSTAETTEN]);
+        // Standartrechnungsvorlagen einstellen
+        ts.add([TASK_PRIVATRECHNUNG, TASK_PRIVATRECHNUNG_BETRIEBSSTAETTE]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_PRIVATRECHNUNG_BETRIEBSSTAETTE]);
     }
     if (document.getElementById('TI').checked && !document.getElementById('TI').disabled) {
         ts.add([TASK_ZOLLSOFT, TASK_TI]);
@@ -283,6 +292,8 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_KIM]);
         ts.add([TASK_ZOLLSOFT, TASK_KIM]);
         ts.add([TASK_KIM, TASK_TESTS]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_KIM_BETRIEBSSTAETTEN]);
+        ts.add([TASK_KIM, TASK_KIM_BETRIEBSSTAETTEN]);
         // eHBA
         ts.add([TASK_KUNDE, TASK_HBA]);
         ts.add([TASK_HBA, TASK_TESTS]);
@@ -294,11 +305,18 @@ function topsort() {
     // }
     if (document.getElementById('BG').checked && !document.getElementById('BG').disabled) {
         ts.add([TASK_BG, TASK_BGRECHNUNG]);
+        // Standartrechnungsvorlagen in den Betriebsstaetten hinterlegen
+        ts.add([TASK_BG, TASK_BG_BETRIEBSSTAETTE]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_BG_BETRIEBSSTAETTE]);
     }
     if (document.getElementById('DALE-UV').checked && !document.getElementById('DALE-UV').disabled) {
         ts.add([TASK_KUNDE, TASK_DALE_UV]);
         ts.add([TASK_KUNDE, TASK_DALE_U_LAUFENDE_NUMMER]);
         ts.add([TASK_DALE_UV, TASK_TESTS]);
+        // Ansprechpartner in den Betriebsstaetten hinterlegen
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_DALE_UV_BETRIEBSSTAETTEN]);
+        ts.add([TASK_NUTZER, TASK_DALE_UV_BETRIEBSSTAETTEN]);
+        ts.add([TASK_KUNDE, TASK_DALE_UV_BETRIEBSSTAETTEN]);
     }
     // if (document.getElementById('eHBA').checked && !document.getElementById('eHBA').disabled) {
     //     ts.add([TASK_KUNDE, TASK_HBA]);
@@ -536,7 +554,10 @@ function topsort() {
         ts.add([TASK_FONTS, TASK_BRIEFVORLAGEN]);
         ts.add([TASK_FONTS, TASK_BRIEFVORLAGEN]);
         ts.add([TASK_BANKDATEN,TASK_PRIVATRECHNUNG]);
-        ts.add([TASK_BETRIEBSSTAETTEN,TASK_PRIVATRECHNUNG]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_PRIVATRECHNUNG]);
+        // Standartrechnungsvorlagen in den Betriebsstaetten hinterlegen
+        ts.add([TASK_PRIVATRECHNUNG, TASK_PRIVATRECHNUNG_BETRIEBSSTAETTE]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_PRIVATRECHNUNG_BETRIEBSSTAETTE]);
     }
     if (document.getElementById('Formulare').checked && !document.getElementById('Formulare').disabled) {
         ts.add([TASK_KUNDE, TASK_FORMULARE]);

@@ -1,5 +1,5 @@
 // constants
-const TASK_BANKDATEN = "Geschäftskonto hinterlegen";
+const TASK_BANKDATEN = "Geschäftskonto hinterlegen. IBAN hier auf Gültigkeit prüfen: https://www.iban-rechner.de/";
 const TASK_DRUCKERZUWEISUNG = "Druckerzuweisung";
 const TASK_KUNDE = "Kundengespräch";
 const TASK_SKRIPTE = "Skripte";
@@ -125,9 +125,12 @@ const TASK_VSS_AERZTE_BESTAETIGEN = "Aktivierungslink von arzt-direkt der Ärzte
 const TASK_VSS_AERZTE_FREISCHALTEN = "Ärzte bei arzt-direkt freischalten";
 const TASK_DRUCK_SPARSAM = "sparsamen Formulardruck aktivieren";
 const TASK_OFFENE_SPRECHSTUNDE = "Offene Sprechstunde in den Einstellungen ausstellen";
-// Laborziffernübernahme
-// UV-GOÄ
-// iPad- Nutzer erstellen
+const TASK_NUTZER_BETRIEBSSTAETTEN = "Den Nutzern ihre Betriebsstaette zuordnen (Nutzerverwaltung)"
+// TODO:
+// - Laborziffernübernahme
+// - UV-GOÄ
+// - iPad- Nutzer erstellen
+// - Terminzettel als Task auf der 
 
 // listeners
 document.getElementById("speichern").addEventListener("click", speichern, false);
@@ -260,13 +263,18 @@ function topsort() {
     ts.add([TASK_DRUCK_SPARSAM]);
     ts.add([TASK_OFFENE_SPRECHSTUNDE]);
     ts.add([TASK_GERAETEVIDEOS]);
+    ts.add([TASK_TERMINZETTEL, TASK_SYMBOLLEISTE]);
+    ts.add([TASK_TERMINZETTEL, TASK_TESTS]);
 
     if (document.getElementById('Betriebsstätten').checked && !document.getElementById('Betriebsstätten').disabled) {
-        ts.add([TASK_KUNDE, TASK_BSNR]);
-        ts.add([TASK_KUNDE, TASK_FACHGRUPPEN]);
-        ts.add([TASK_KUNDE, TASK_BANKDATEN]);
+        ts.add([TASK_NUTZER, TASK_BETRIEBSSTAETTEN]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_BANKDATEN]);
         ts.add([TASK_BETRIEBSSTAETTEN, TASK_BSNR]);
+        ts.add([TASK_KUNDE, TASK_BSNR]);
         ts.add([TASK_BETRIEBSSTAETTEN, TASK_FACHGRUPPEN]);
+        // Nutzer-Betriebsstaettenzuordnung
+        ts.add([TASK_NUTZER, TASK_NUTZER_BETRIEBSSTAETTEN]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_NUTZER_BETRIEBSSTAETTEN]);
     }
     if (document.getElementById('TI').checked && !document.getElementById('TI').disabled) {
         ts.add([TASK_ZOLLSOFT, TASK_TI]);
@@ -328,6 +336,9 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_UNTERSCHRIFT]);
         ts.add([TASK_NUTZER, TASK_FACHGRUPPEN]);
         ts.add([TASK_NUTZER, TASK_NUTZER_FARBEN]);
+        // Nutzer-Betriebsstaettenzuordnung
+        ts.add([TASK_NUTZER, TASK_NUTZER_BETRIEBSSTAETTEN]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_NUTZER_BETRIEBSSTAETTEN]);
     }
     if (document.getElementById('KV-Connect').checked && !document.getElementById('KV-Connect').disabled) {
         ts.add([TASK_KUNDE, TASK_KV_CONNECT]);
@@ -343,19 +354,24 @@ function topsort() {
     if (document.getElementById('Kalender').checked && !document.getElementById('Kalender').disabled) {
         ts.add([TASK_KUNDE, TASK_KALENDER]);
         ts.add([TASK_KALENDER, TASK_TESTS]);
-        ts.add([TASK_TERMINZETTEL, TASK_SYMBOLLEISTE]);
-        ts.add([TASK_TERMINZETTEL, TASK_TESTS]);
+        ts.add([TASK_NUTZER, TASK_KALENDER]);
+        ts.add([TASK_BETRIEBSSTAETTEN, TASK_KALENDER]);
+        ts.add([TASK_TODOS, TASK_KALENDER]);
+        ts.add([TASK_KV_BEREICH, TASK_KALENDER]);
     }
     if (document.getElementById('OTK').checked && !document.getElementById('OTK').disabled) {
-        ts.add([TASK_KUNDE, TASK_OTK]);
-        ts.add([TASK_ZOLLSOFT, TASK_OTK]);
-        ts.add([TASK_ARZT_DIREKT, TASK_OTK]);
         ts.add([TASK_ZOLLSOFT, TASK_ARZT_DIREKT]);
-        ts.add([TASK_OTK, TASK_TESTS]);
         ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_PASSWORTLISTE]);
+        ts.add([TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN, TASK_ARZT_DIREKT_PASSWORTLISTE]);
         ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
         ts.add([TASK_GEB, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
+        ts.add([TASK_ARZT_DIREKT, TASK_TESTS]);
         ts.add([TASK_KUNDE, TASK_GEB]);
+
+        ts.add([TASK_ARZT_DIREKT, TASK_OTK]);
+        ts.add([TASK_KALENDER, TASK_OTK]);
+        ts.add([TASK_KUNDE, TASK_OTK]);
+        ts.add([TASK_OTK, TASK_TESTS]);
     }
     if (document.getElementById('Drucker').checked && !document.getElementById('Drucker').disabled) {
         ts.add([TASK_DRUCKERZUWEISUNG]);
@@ -365,7 +381,18 @@ function topsort() {
         ts.add([TASK_DRUCKERZUWEISUNG, TASK_PAPIER]);
     }
     if (document.getElementById('Arzeko').checked && !document.getElementById('Arzeko').disabled) {
-        ts.add([TASK_ARZEKO]);
+        ts.add([TASK_KUNDE, TASK_ARZT_DIREKT]);
+        ts.add([TASK_ZOLLSOFT, TASK_ARZT_DIREKT]);
+        // ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
+        // ts.add([TASK_GEB, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
+        ts.add([TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN, TASK_VSS_AERZTE_BESTAETIGEN]);
+        // ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS_AERZTE_FREISCHALTEN]);
+        ts.add([TASK_ARZT_DIREKT, TASK_VSS]);
+        // ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS]);
+        // ts.add([TASK_VSS_AERZTE_FREISCHALTEN, TASK_VSS]);
+        ts.add([TASK_VSS, TASK_TESTS]);
+        // ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_PASSWORTLISTE]);
+        ts.add([TASK_VSS, TASK_ARZT_DIREKT_PASSWORTLISTE]);
     }
     if (document.getElementById('DMP').checked && !document.getElementById('DMP').disabled) {
         ts.add([TASK_EINSTELLUNGEN_ZOLLSOFT, TASK_DMP]);
@@ -378,18 +405,13 @@ function topsort() {
         ts.add([TASK_KUNDE, TASK_UST_IDNR]);
     }
     if (document.getElementById('VSS').checked && !document.getElementById('VSS').disabled) {
-        ts.add([TASK_KUNDE, TASK_ARZT_DIREKT]);
         ts.add([TASK_ZOLLSOFT, TASK_ARZT_DIREKT]);
+        ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_PASSWORTLISTE]);
+        ts.add([TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN, TASK_ARZT_DIREKT_PASSWORTLISTE]);
         ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
         ts.add([TASK_GEB, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
-        ts.add([TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN, TASK_VSS_AERZTE_BESTAETIGEN]);
-        ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS_AERZTE_FREISCHALTEN]);
-        ts.add([TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN, TASK_VSS]);
-        ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS]);
-        ts.add([TASK_VSS_AERZTE_FREISCHALTEN, TASK_VSS]);
-        ts.add([TASK_VSS, TASK_TESTS]);
-        ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_PASSWORTLISTE]);
-        ts.add([TASK_VSS, TASK_ARZT_DIREKT_PASSWORTLISTE]);
+        ts.add([TASK_ARZT_DIREKT, TASK_TESTS]);
+        ts.add([TASK_KUNDE, TASK_GEB]);
     }
     if (document.getElementById('Aktionsketten').checked && !document.getElementById('Aktionsketten').disabled) {
         ts.add([TASK_KUNDE, TASK_AKTIONSKETTEN]);
@@ -573,7 +595,7 @@ function topsort() {
     if (document.getElementById('OPS-Favoriten').checked && !document.getElementById('OPS-Favoriten').disabled) {
         ts.add([TASK_KUNDE, TASK_OPS]);
     }
-
+    
     return ts;
 }
 function speichern() {
@@ -625,6 +647,7 @@ function speichern() {
 
     download(`${document.getElementById('filename').value}.md`, list);
 }
+
 function download(filename, text) {
     const fileBlob = new Blob([text], { type: 'application/octet-binary' })
     const url = URL.createObjectURL(fileBlob)

@@ -46,7 +46,7 @@ function gastroenterologieClick() {
     document.getElementById('Früherkennung').checked = document.getElementById('Gynäkologie').checked || document.getElementById('Urologie').checked || document.getElementById('Diabetologie').checked || document.getElementById('Gastroenterologie').checked || document.getElementById('Dermatologie').checked || document.getElementById('Innere').checked || document.getElementById('Kardiologie').checked || document.getElementById('Kinder').checked;
 }
 function orthopädieClick() {
-    document.getElementById('BG').checked = document.getElementById('Orthopädie').checked || document.getElementById('Chirurgie').checked;
+    document.getElementById('BG').checked = document.getElementById('Orthopädie').checked || document.getElementById('Chirurgie').checked || document.getElementById('Kinder').checked;
     document.getElementById('DALE-UV').checked = document.getElementById('Orthopädie').checked || document.getElementById('Chirurgie').checked;
 }
 function chirurgieClick() {
@@ -67,4 +67,5 @@ function kardiologieClick() {
 }
 function kinderClick() {
     document.getElementById('Früherkennung').checked = document.getElementById('Gynäkologie').checked || document.getElementById('Urologie').checked || document.getElementById('Diabetologie').checked || document.getElementById('Gastroenterologie').checked || document.getElementById('Dermatologie').checked || document.getElementById('Innere').checked || document.getElementById('Kardiologie').checked || document.getElementById('Kinder').checked;
+    document.getElementById('BG').checked = document.getElementById('Orthopädie').checked || document.getElementById('Chirurgie').checked || document.getElementById('Kinder').checked;
 }

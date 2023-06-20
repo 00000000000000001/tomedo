@@ -90,7 +90,7 @@ const TASK_HBA = "eHBA einrichten";
 const TASK_ARZT_DIREKT = "arzt-direkt Konto erstellen und konfigurieren";
 const TASK_ARZT_DIREKT_PASSWORTLISTE = "arzt-direkt-Passwortliste ausdrucken und in die Kundenmappe heften";
 const TASK_KV_BEREICH = "KV-Bereich in den Zollsoft-Einstellungen auswählen";
-const TASK_SYMBOLLEISTE = "(AP)Symbolleiste (KBV, Attest, Schulbesch., Anwesenheit, Terminzettel, Früherkennung";
+const TASK_SYMBOLLEISTE = "(AP)Symbolleiste (KBV, Attest, Schulbesch., Anwesenheit, Terminzettel, Früherkennung)";
 const TASK_TI = "TI konfigurieren (muss von Zollsoft gemacht werden)";
 const TASK_MODULE_IMPFDOCNE = "ImpfDocNE-Modul aktivieren";
 const TASK_IPHONE_VPN = "iPhone VPN Konfiguration einspielen";
@@ -131,6 +131,7 @@ const TASK_DALE_UV_BETRIEBSSTAETTEN = "Ansprechpartner für DALE-UV in den Betri
 const TASK_KIM_BETRIEBSSTAETTEN = "KIM E-Mail-Konto in den Betriebsstaetten hinterlegen (s. Betriebsstaetten>Sonstiges)";
 const TASK_BG_BETRIEBSSTAETTE = "Privatrechnungstyp (BG) als Standartauswahl in den Betriebsstaetten setzen (s. Betriebsstaetten>Sonstiges)";
 const TASK_BETRIEBSSTAETTEN_FARBE = "Bei mehreren Betriebsstaetten: Farbe der Betriebsstaette einstellen (s. Betriebsstaetten>Sonstiges)";
+const TASK_VSS_KOPPLUNG = "VSS-Kopplung: https://oraculum.system-helden.de/books/tomedo---client/page/videosprechstunde-tomedo-kopplung";
 // TODO:
 // - Laborziffernübernahme
 // - UV-GOÄ
@@ -401,16 +402,6 @@ function topsort() {
     if (document.getElementById('Arzeko').checked && !document.getElementById('Arzeko').disabled) {
         ts.add([TASK_KUNDE, TASK_ARZT_DIREKT]);
         ts.add([TASK_ZOLLSOFT, TASK_ARZT_DIREKT]);
-        // ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
-        // ts.add([TASK_GEB, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
-        ts.add([TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN, TASK_VSS_AERZTE_BESTAETIGEN]);
-        // ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS_AERZTE_FREISCHALTEN]);
-        ts.add([TASK_ARZT_DIREKT, TASK_VSS]);
-        // ts.add([TASK_VSS_AERZTE_BESTAETIGEN, TASK_VSS]);
-        // ts.add([TASK_VSS_AERZTE_FREISCHALTEN, TASK_VSS]);
-        ts.add([TASK_VSS, TASK_TESTS]);
-        // ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_PASSWORTLISTE]);
-        ts.add([TASK_VSS, TASK_ARZT_DIREKT_PASSWORTLISTE]);
     }
     if (document.getElementById('DMP').checked && !document.getElementById('DMP').disabled) {
         ts.add([TASK_EINSTELLUNGEN_ZOLLSOFT, TASK_DMP]);
@@ -430,9 +421,16 @@ function topsort() {
         ts.add([TASK_GEB, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
         ts.add([TASK_ARZT_DIREKT, TASK_TESTS]);
         ts.add([TASK_KUNDE, TASK_GEB]);
+        ts.add([TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN, TASK_VSS_AERZTE_BESTAETIGEN]);
+        ts.add([TASK_ARZT_DIREKT, TASK_VSS]);
+        ts.add([TASK_VSS, TASK_TESTS]);
+        ts.add([TASK_VSS, TASK_ARZT_DIREKT_PASSWORTLISTE]);
+        ts.add([TASK_ARZT_DIREKT, TASK_VSS_KOPPLUNG]);
     }
     if (document.getElementById('Aktionsketten').checked && !document.getElementById('Aktionsketten').disabled) {
         ts.add([TASK_KUNDE, TASK_AKTIONSKETTEN]);
+        ts.add([TASK_KARTEIEINTRAGSTYPEN, TASK_AKTIONSKETTEN]);
+        ts.add([TASK_AKTIONSKETTEN, TASK_TESTS]);
         if (document.getElementById('Briefe').checked) {
             ts.add([TASK_BRIEFVORLAGEN, TASK_AKTIONSKETTEN]);
         }

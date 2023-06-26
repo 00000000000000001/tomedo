@@ -3,7 +3,7 @@ const TASK_BANKDATEN = "Geschäftskonto hinterlegen. IBAN hier auf Gültigkeit p
 const TASK_DRUCKERZUWEISUNG = "Druckerzuweisung";
 const TASK_KUNDE = "Kundengespräch";
 const TASK_SKRIPTE = "Skripte";
-const TASK_STEMPEL = "Arzt-Stempel erstellen";
+const TASK_STEMPEL = "Arzt-Stempel erstellen [An Internal Link](/guides/content/editing-an-existing-page)";
 const TASK_EMAIL_TOMEDO = "E-Mail Konten hinteregen (tomedo)";
 const TASK_EMAIL_MAIL = "E-Mail Konten hinterlegen (Apple Mail)";
 const TASK_EMNAIL_SIGNATUREN = "(AP)E-Mail Signaturen erstellen (tomedo, Apple-Mail)";
@@ -132,11 +132,15 @@ const TASK_KIM_BETRIEBSSTAETTEN = "KIM E-Mail-Konto in den Betriebsstaetten hint
 const TASK_BG_BETRIEBSSTAETTE = "Privatrechnungstyp (BG) als Standartauswahl in den Betriebsstaetten setzen (s. Betriebsstaetten>Sonstiges)";
 const TASK_BETRIEBSSTAETTEN_FARBE = "Bei mehreren Betriebsstaetten: Farbe der Betriebsstaette einstellen (s. Betriebsstaetten>Sonstiges)";
 const TASK_VSS_KOPPLUNG = "VSS-Kopplung: https://oraculum.system-helden.de/books/tomedo---client/page/videosprechstunde-tomedo-kopplung";
+const TASK_ORDINATIONSGEBUEHR = "Ordinationsgebühr im Arzt-Nutzer hinterlegen";
+const TASK_KOSTENVORANSCHLAG = "Kostenvoranschlag anpassen";
+const TASK_MAHNUNGEN = "Mahnungsvorlagen anpassen";
+const TASK_LOGO = "Praxislogo einholen";
 // TODO:
 // - Laborziffernübernahme
 // - UV-GOÄ
 // - iPad- Nutzer erstellen
-// - Terminzettel als Task auf der 
+// - Terminzettel als Task auf der
 
 // listeners
 document.getElementById("speichern").addEventListener("click", speichern, false);
@@ -271,6 +275,10 @@ function topsort() {
     ts.add([TASK_GERAETEVIDEOS]);
     ts.add([TASK_TERMINZETTEL, TASK_SYMBOLLEISTE]);
     ts.add([TASK_TERMINZETTEL, TASK_TESTS]);
+    ts.add([TASK_FONTS, TASK_TERMINZETTEL]);
+    ts.add([TASK_LOGO, TASK_TERMINZETTEL]);
+    ts.add([TASK_KUNDE, TASK_LOGO]);
+    ts.add([TASK_KOSTENVORANSCHLAG]);
 
     if (document.getElementById('Betriebsstätten').checked && !document.getElementById('Betriebsstätten').disabled) {
         ts.add([TASK_NUTZER, TASK_BETRIEBSSTAETTEN]);
@@ -358,6 +366,9 @@ function topsort() {
         // Nutzer-Betriebsstaettenzuordnung
         ts.add([TASK_NUTZER, TASK_NUTZER_BETRIEBSSTAETTEN]);
         ts.add([TASK_BETRIEBSSTAETTEN, TASK_NUTZER_BETRIEBSSTAETTEN]);
+        // Ordinationsgebühr
+        ts.add([TASK_KUNDE, TASK_ORDINATIONSGEBUEHR]);
+        ts.add([TASK_NUTZER, TASK_ORDINATIONSGEBUEHR]);
     }
     if (document.getElementById('KV-Connect').checked && !document.getElementById('KV-Connect').disabled) {
         ts.add([TASK_KUNDE, TASK_KV_CONNECT]);
@@ -556,12 +567,16 @@ function topsort() {
         // Standartrechnungsvorlagen in den Betriebsstaetten hinterlegen
         ts.add([TASK_PRIVATRECHNUNG, TASK_PRIVATRECHNUNG_BETRIEBSSTAETTE]);
         ts.add([TASK_BETRIEBSSTAETTEN, TASK_PRIVATRECHNUNG_BETRIEBSSTAETTE]);
+        ts.add([TASK_PRIVATRECHNUNG, TASK_MAHNUNGEN]);
+        ts.add([TASK_LOGO, TASK_BRIEFVORLAGEN]);
+        ts.add([TASK_LOGO, TASK_MAHNUNGEN]);
+        ts.add([TASK_LOGO, TASK_MAHNUNGEN]);
     }
     if (document.getElementById('Formulare').checked && !document.getElementById('Formulare').disabled) {
         ts.add([TASK_KUNDE, TASK_FORMULARE]);
         ts.add([TASK_FORMULARE, TASK_SYMBOLLEISTE]);
         ts.add([TASK_FONTS, TASK_FORMULARE]);
-        ts.add([TASK_FONTS, TASK_FORMULARE]);
+        ts.add([TASK_FONTS, TASK_PRIVATRECHNUNG]);
     }
     if (document.getElementById('iPads').checked && !document.getElementById('iPads').disabled) {
         ts.add([TASK_KUNDE, TASK_APPLE_ID]);

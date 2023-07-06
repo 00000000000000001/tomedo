@@ -169,6 +169,8 @@ const TASK_ORDINATIONSGEBUEHR = "Ordinationsgebühr im Arzt-Nutzer hinterlegen";
 const TASK_KOSTENVORANSCHLAG = "Kostenvoranschlag anpassen";
 const TASK_MAHNUNGEN = "Mahnungsvorlagen anpassen";
 const TASK_LOGO = "Praxislogo einholen";
+const TASK_BUCHUNG =
+  "Zeitkontingent des Projektangebots prüfen (s. Projektüberblick im Auftrag.). Ggf. Kunden darüber informieren, dass Überstunden anfallen.";
 // TODO:
 // - Laborziffernübernahme
 // - UV-GOÄ
@@ -363,7 +365,7 @@ function notizen() {
 
   return notizen;
 }
-function topsort() {
+function addRulesAndReturnTopsort() {
   let ts = Object.create(TopSort);
 
   ts.add([TASK_PRAXIS_TAGESLISTE]);
@@ -378,6 +380,7 @@ function topsort() {
   ts.add([TASK_LOGO, TASK_TERMINZETTEL]);
   ts.add([TASK_KUNDE, TASK_LOGO]);
   ts.add([TASK_KOSTENVORANSCHLAG]);
+  ts.add([TASK_TESTS, TASK_BUCHUNG]);
 
   if (
     document.getElementById("Betriebsstätten").checked &&
@@ -552,8 +555,7 @@ function topsort() {
     document.getElementById("Arzeko").checked &&
     !document.getElementById("Arzeko").disabled
   ) {
-    ts.add([TASK_KUNDE, TASK_ARZT_DIREKT]);
-    ts.add([TASK_ZOLLSOFT, TASK_ARZT_DIREKT]);
+    ts.add([TASK_ARZEKO]);
   }
   if (
     document.getElementById("DMP").checked &&
@@ -891,29 +893,29 @@ function speichern() {
   let notizen_list = "";
   let list = "";
 
-  for (const task of topsort().topsort()) {
+  for (const task of addRulesAndReturnTopsort().topsort()) {
     todo_list += `- [ ] ${task}\n`;
-    if (topsort().dep(task).includes(TASK_KUNDE)) {
+    if (addRulesAndReturnTopsort().dep(task).includes(TASK_KUNDE)) {
       kunde_list += `* ${task}\n`;
     }
   }
-  for (const task of topsort().succ(TASK_KUNDE)) {
+  for (const task of addRulesAndReturnTopsort().succ(TASK_KUNDE)) {
     //let tsKunde = Object.create(TopSort);
     //kunde_list += `* ${task}\n`;
     //for (i in topsort().regeln) {
     //  console.log(topsort().regeln[i]);
     //}
   }
-  for (const task of topsort().succ(TASK_ZOLLSOFT)) {
+  for (const task of addRulesAndReturnTopsort().succ(TASK_ZOLLSOFT)) {
     zollsoft_list += `- [ ] ${task}\n`;
   }
-  for (const task of topsort().succ(TASK_LABOR)) {
+  for (const task of addRulesAndReturnTopsort().succ(TASK_LABOR)) {
     labor_list += `- [ ] ${task}\n`;
   }
-  for (const task of topsort().succ(TASK_SCHREIBER)) {
+  for (const task of addRulesAndReturnTopsort().succ(TASK_SCHREIBER)) {
     schreiber_list += `- [ ] ${task}\n`;
   }
-  for (const task of topsort().succ(TASK_DOCTOLIB)) {
+  for (const task of addRulesAndReturnTopsort().succ(TASK_DOCTOLIB)) {
     docto_list += `- [ ] ${task}\n`;
   }
   for (const [key, value] of notizen().entries()) {
@@ -956,6 +958,7 @@ function download(filename, text) {
 // logic
 const TopSort = {
   regeln: [],
+  arr: [],
   add: function (dep) {
     this.regeln.push(dep);
   },

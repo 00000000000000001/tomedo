@@ -171,6 +171,7 @@ const TASK_MAHNUNGEN = "Mahnungsvorlagen anpassen";
 const TASK_LOGO = "Praxislogo einholen";
 const TASK_BUCHUNG =
   "Zeitkontingent des Projektangebots prüfen (s. Projektüberblick im Auftrag.). Ggf. Kunden darüber informieren, dass Überstunden anfallen.";
+const TASK_ARZT_DIREKT_QR_CODE = "QR-Code von arzt-direkt für die Patienten zum hinzufügen des Arztes ausdrucken und auslegen. [Howto: https://oraculum.system-helden.de/books/tomedo---client/page/arzt-direkt-ausdruck-fur-praxis-erstellen]"
 // TODO:
 // - Laborziffernübernahme
 // - UV-GOÄ
@@ -535,6 +536,7 @@ function addRulesAndReturnTopsort() {
     ts.add([TASK_GEB, TASK_ARZT_DIREKT_AERZTE_REGISTRIEREN]);
     ts.add([TASK_ARZT_DIREKT, TASK_TESTS]);
     ts.add([TASK_KUNDE, TASK_GEB]);
+    ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_QR_CODE]);
 
     ts.add([TASK_ARZT_DIREKT, TASK_OTK]);
     ts.add([TASK_KALENDER, TASK_OTK]);
@@ -595,6 +597,7 @@ function addRulesAndReturnTopsort() {
     ts.add([TASK_VSS, TASK_TESTS]);
     ts.add([TASK_VSS, TASK_ARZT_DIREKT_PASSWORTLISTE]);
     ts.add([TASK_ARZT_DIREKT, TASK_VSS_KOPPLUNG]);
+    ts.add([TASK_ARZT_DIREKT, TASK_ARZT_DIREKT_QR_CODE]);
   }
   if (
     document.getElementById("Aktionsketten").checked &&

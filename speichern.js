@@ -171,7 +171,8 @@ const TASK_MAHNUNGEN = "Mahnungsvorlagen anpassen";
 const TASK_LOGO = "Praxislogo einholen";
 const TASK_BUCHUNG =
   "Zeitkontingent des Projektangebots prüfen (s. Projektüberblick im Auftrag.). Ggf. Kunden darüber informieren, dass Überstunden anfallen.";
-const TASK_ARZT_DIREKT_QR_CODE = "QR-Code von arzt-direkt für die Patienten zum hinzufügen des Arztes ausdrucken und auslegen. [Howto: https://oraculum.system-helden.de/books/tomedo---client/page/arzt-direkt-ausdruck-fur-praxis-erstellen]"
+const TASK_ARZT_DIREKT_QR_CODE = "QR-Code von arzt-direkt für die Patienten zum hinzufügen des Arztes ausdrucken und auslegen. [Howto: https://oraculum.system-helden.de/books/tomedo---client/page/arzt-direkt-ausdruck-fur-praxis-erstellen]";
+const TASK_DIKTIERFUNKTION = "(AP) MacOS Diktierfunktion aktivieren";
 // TODO:
 // - Laborziffernübernahme
 // - UV-GOÄ
@@ -382,6 +383,7 @@ function addRulesAndReturnTopsort() {
   ts.add([TASK_KUNDE, TASK_LOGO]);
   ts.add([TASK_KOSTENVORANSCHLAG]);
   ts.add([TASK_TESTS, TASK_BUCHUNG]);
+  ts.add([TASK_DIKTIERFUNKTION]);
 
   if (
     document.getElementById("Betriebsstätten").checked &&

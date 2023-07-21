@@ -175,6 +175,7 @@ const TASK_ARZT_DIREKT_QR_CODE = "QR-Code von arzt-direkt für die Patienten zum
 const TASK_DIKTIERFUNKTION = "(AP) MacOS Diktierfunktion aktivieren";
 const TASK_TABELLEN_SCHRIFT_GROESSE = "Schriftgröße in tomedo auf 19 in Tabellen stellen.";
 const TASK_KALENDER_SCHRIFT_GROESSE = "Kalender Schriftgroesse erhöhen.";
+const TASK_DRUCK_BRIEFUMSCHLAG = "Druck für Briefumschläge konfigurieten.";
 // TODO:
 // - Laborziffernübernahme
 // - UV-GOÄ
@@ -558,6 +559,7 @@ function addRulesAndReturnTopsort() {
     ts.add([TASK_BRIEFVORLAGEN, TASK_DRUCKEINSTELLUNGEN]);
     ts.add([TASK_DRUCKEINSTELLUNGEN, TASK_TESTS]);
     ts.add([TASK_DRUCKERZUWEISUNG, TASK_PAPIER]);
+    ts.add([TASK_OSX_DRUCKER, TASK_DRUCK_BRIEFUMSCHLAG]);
   }
   if (
     document.getElementById("Arzeko").checked &&

@@ -173,6 +173,8 @@ const TASK_BUCHUNG =
   "Zeitkontingent des Projektangebots prüfen (s. Projektüberblick im Auftrag.). Ggf. Kunden darüber informieren, dass Überstunden anfallen.";
 const TASK_ARZT_DIREKT_QR_CODE = "QR-Code von arzt-direkt für die Patienten zum hinzufügen des Arztes ausdrucken und auslegen. [Howto: https://oraculum.system-helden.de/books/tomedo---client/page/arzt-direkt-ausdruck-fur-praxis-erstellen]";
 const TASK_DIKTIERFUNKTION = "(AP) MacOS Diktierfunktion aktivieren";
+const TASK_TABELLEN_SCHRIFT_GROESSE = "Schriftgröße in tomedo auf 19 in Tabellen stellen.";
+const TASK_KALENDER_SCHRIFT_GROESSE = "Kalender Schriftgroesse erhöhen.";
 // TODO:
 // - Laborziffernübernahme
 // - UV-GOÄ
@@ -384,6 +386,7 @@ function addRulesAndReturnTopsort() {
   ts.add([TASK_KOSTENVORANSCHLAG]);
   ts.add([TASK_TESTS, TASK_BUCHUNG]);
   ts.add([TASK_DIKTIERFUNKTION]);
+  ts.add([TASK_TABELLEN_SCHRIFT_GROESSE]);
 
   if (
     document.getElementById("Betriebsstätten").checked &&
@@ -523,6 +526,7 @@ function addRulesAndReturnTopsort() {
     ts.add([TASK_BETRIEBSSTAETTEN, TASK_KALENDER]);
     ts.add([TASK_TODOS, TASK_KALENDER]);
     ts.add([TASK_KV_BEREICH, TASK_KALENDER]);
+    ts.add([TASK_KALENDER_SCHRIFT_GROESSE]);
   }
   if (
     document.getElementById("OTK").checked &&
